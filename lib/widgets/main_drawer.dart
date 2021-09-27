@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/provider/home_page.dart';
 import 'package:state_management_examples/stateful_widget/home_page.dart';
 
@@ -42,7 +43,8 @@ class MainDrawer extends StatelessWidget {
           ),
           Divider(height: 0),
           ListTile(
-            title: Text('BLoC x Provider'),
+            title: Text('BLoC'),
+            onTap: () => _navigateTo(context, BlocCounterPage()),
           ),
           Divider(height: 0),
           ListTile(

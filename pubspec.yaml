@@ -9,8 +9,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
+  flutter_bloc: ^7.3.0
   provider: ^6.0.1
 
 

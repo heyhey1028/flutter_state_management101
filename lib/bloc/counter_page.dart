@@ -27,16 +27,10 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   @override
   Stream<CounterState> mapEventToState(CounterEvent event) async* {
     if (event is IncrementEvent) {
-      print('increment');
-      print('current state: ${state.counter}');
       yield CounterState(counter: state.counter + 1);
     } else if (event is DecrementEvent) {
-      print('decrement');
-      print('current state: ${state.counter}');
       yield CounterState(counter: state.counter - 1);
     } else if (event is ClearEvent) {
-      print('clear');
-      print('current state: ${state.counter}');
       yield CounterState(counter: 0);
     } else {
       yield CounterState(counter: state.counter);

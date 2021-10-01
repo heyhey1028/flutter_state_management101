@@ -1,40 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/widgets/main_drawer.dart';
+import 'package:provider/provider.dart';
 
-class StatefulWidgetHomePage extends StatefulWidget {
-  StatefulWidgetHomePage();
+class ProviderCounterPageState extends ChangeNotifier {
+  int _counter = 0;
+  int get counter => _counter;
 
-  @override
-  _StatefulWidgetHomePageState createState() => _StatefulWidgetHomePageState();
+  void incrementCounter() {
+    _counter++;
+    notifyListeners();
+  }
+
+  void decrementCounter() {
+    _counter--;
+    notifyListeners();
+  }
+
+  void resetCounter() {
+    _counter = 0;
+    notifyListeners();
+  }
 }
 
-class _StatefulWidgetHomePageState extends State<StatefulWidgetHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 0;
-    });
-  }
+class ProviderCounterPage extends StatelessWidget {
+  const ProviderCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => ProviderCounterPageState(),
+      child: ProviderCounterPageBody(),
+    );
+  }
+}
+
+class ProviderCounterPageBody extends StatelessWidget {
+  const ProviderCounterPageBody({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('rebuild!');
+    final ProviderCounterPageState unListenState =
+        context.read<ProviderCounterPageState>();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('StatefulWidget'),
+        title: Text('ChangeNotifier x Provider'),
       ),
       drawer: MainDrawer(),
       body: Center(
@@ -44,9 +55,11 @@ class _StatefulWidgetHomePageState extends State<StatefulWidgetHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Consumer<ProviderCounterPageState>(
+              builder: (context, state, _) => Text(
+                '${state.counter}',
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),
@@ -56,21 +69,21 @@ class _StatefulWidgetHomePageState extends State<StatefulWidgetHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FloatingActionButton(
-              onPressed: _incrementCounter,
+              onPressed: unListenState.incrementCounter,
               tooltip: 'Increment',
               heroTag: 'Increment',
               child: Icon(Icons.add),
             ),
             const SizedBox(width: 16),
             FloatingActionButton(
-              onPressed: _decrementCounter,
+              onPressed: unListenState.decrementCounter,
               tooltip: 'Decrement',
               heroTag: 'Decrement',
               child: Icon(Icons.remove),
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: _resetCounter,
+              onPressed: unListenState.resetCounter,
               tooltip: 'Clear',
               heroTag: 'Clear',
               label: Text('CLEAR'),

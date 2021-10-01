@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/cubit/counter_page.dart';
-import 'package:state_management_examples/provider/home_page.dart';
+import 'package:state_management_examples/provider/counter_page.dart';
 import 'package:state_management_examples/state_notifier/counter_page.dart';
-import 'package:state_management_examples/stateful_widget/home_page.dart';
+import 'package:state_management_examples/stateful_widget/counter_page.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key key}) : super(key: key);
@@ -41,12 +41,12 @@ class MainDrawer extends StatelessWidget {
             children: <Widget>[
               ListTile(
                 title: Text('Stateful Widget'),
-                onTap: () => _navigateTo(context, StatefulWidgetHomePage()),
+                onTap: () => _navigateTo(context, StatefulWidgetCounterPage()),
               ),
               Divider(height: 0),
               ListTile(
                 title: Text('ChangeNotifier x Provider'),
-                onTap: () => _navigateTo(context, ProviderHomePage()),
+                onTap: () => _navigateTo(context, ProviderCounterPage()),
               ),
               Divider(height: 0),
               ListTile(

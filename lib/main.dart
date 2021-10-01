@@ -19,19 +19,30 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key key}) : super(key: key);
+  MainPage({Key key}) : super(key: key);
+  final _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text('MAIN PAGE'),
-        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(color: Colors.blue),
+        leading: IconButton(
+          icon: Icon(Icons.menu, size: 40), // change this size and style
+          onPressed: () => _scaffoldKey.currentState.openDrawer(),
+        ),
       ),
       drawer: MainDrawer(),
       body: Center(
         child: Container(
-          child: Text('THIS IS MAIN PAGE'),
+          child: Text(
+            'THANKS FOR VISITING!!\n' 'THIS IS MAIN PAGE',
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );

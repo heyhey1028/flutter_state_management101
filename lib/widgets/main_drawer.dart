@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/cubit/counter_page.dart';
+import 'package:state_management_examples/main.dart';
 import 'package:state_management_examples/provider/counter_page.dart';
 import 'package:state_management_examples/state_notifier/counter_page.dart';
 import 'package:state_management_examples/stateful_widget/counter_page.dart';
@@ -40,6 +41,11 @@ class MainDrawer extends StatelessWidget {
                 parent: AlwaysScrollableScrollPhysics()),
             children: <Widget>[
               ListTile(
+                title: Text('HOME'),
+                onTap: () => _navigateTo(context, MainPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
                 title: Text('Stateful Widget'),
                 onTap: () => _navigateTo(context, StatefulWidgetCounterPage()),
               ),
@@ -50,7 +56,17 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
+                title: Text('StateNotifier x Provider'),
+                onTap: () => _navigateTo(context, StateNotifierCounterPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
                 title: Text('BLoC'),
+                onTap: () => _navigateTo(context, BlocCounterPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text('BLoC + RxDart'),
                 onTap: () => _navigateTo(context, BlocCounterPage()),
               ),
               Divider(height: 0),
@@ -60,12 +76,15 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('StateNotifier x Provider'),
-                onTap: () => _navigateTo(context, StateNotifierCounterPage()),
+                title: Text('MobX'),
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('RxDart(Redux)'),
+                title: Text('Redux'),
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text('GetX'),
               ),
               Divider(height: 0),
               ListTile(

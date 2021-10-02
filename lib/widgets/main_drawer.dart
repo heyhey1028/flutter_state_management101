@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/cubit/counter_page.dart';
 import 'package:state_management_examples/main.dart';
+import 'package:state_management_examples/mobx/counter_page.dart';
 import 'package:state_management_examples/provider/counter_page.dart';
 import 'package:state_management_examples/state_notifier/counter_page.dart';
 import 'package:state_management_examples/stateful_widget/counter_page.dart';
@@ -76,7 +77,8 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('MobX'),
+                title: Text('MobX x Provider'),
+                onTap: () => _navigateTo(context, MobxCounterPage()),
               ),
               Divider(height: 0),
               ListTile(

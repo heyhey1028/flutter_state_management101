@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:mobx/mobx.dart';
 
 part 'counter_store.g.dart';

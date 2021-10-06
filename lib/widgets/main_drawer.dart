@@ -5,6 +5,7 @@ import 'package:state_management_examples/main.dart';
 import 'package:state_management_examples/mobx/counter_page.dart';
 import 'package:state_management_examples/provider/counter_page.dart';
 import 'package:state_management_examples/redux/counter_page.dart';
+import 'package:state_management_examples/riverpod/counter_page.dart';
 import 'package:state_management_examples/state_notifier/counter_page.dart';
 import 'package:state_management_examples/stateful_widget/counter_page.dart';
 
@@ -88,15 +89,12 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('GetX'),
+                title: Text('StateNotifier x Riverpod'),
+                onTap: () => _navigateTo(context, RiverpodCounterPage()),
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('StateNotifier x hooks_riverpod'),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('StateNotifierProvider x riverpod'),
+                title: Text('Hooks_Riverpod'),
               ),
               Divider(height: 0),
             ],

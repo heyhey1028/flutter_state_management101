@@ -18,3 +18,5 @@ Hope this will be any help to your journey to become a better flutter developer.
 - BLoC(Cubit)
 - StateNotifier x Provider
 - Redux
+
+------------------------

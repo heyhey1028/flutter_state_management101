@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/cubit/counter_page.dart';
+import 'package:state_management_examples/hooks_riverpod/counter_page.dart';
 import 'package:state_management_examples/main.dart';
 import 'package:state_management_examples/mobx/counter_page.dart';
 import 'package:state_management_examples/provider/counter_page.dart';
 import 'package:state_management_examples/redux/counter_page.dart';
 import 'package:state_management_examples/riverpod/counter_page.dart';
+import 'package:state_management_examples/rxdart/counter_page.dart';
 import 'package:state_management_examples/state_notifier/counter_page.dart';
 import 'package:state_management_examples/stateful_widget/counter_page.dart';
 
@@ -69,8 +71,8 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('BLoC + RxDart'),
-                onTap: () => _navigateTo(context, BlocCounterPage()),
+                title: Text('RxDart'),
+                onTap: () => _navigateTo(context, RxdartCounterPage()),
               ),
               Divider(height: 0),
               ListTile(
@@ -94,7 +96,12 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('Hooks_Riverpod'),
+                title: Text('StateNotifier x Hooks_Riverpod'),
+                onTap: () => _navigateTo(context, HooksRiverpodCounterPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text('GetX'),
               ),
               Divider(height: 0),
             ],

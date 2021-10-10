@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/bloc/counter_page.dart';
 import 'package:state_management_examples/cubit/counter_page.dart';
+import 'package:state_management_examples/getx/counter_page.dart';
 import 'package:state_management_examples/hooks_riverpod/counter_page.dart';
 import 'package:state_management_examples/main.dart';
 import 'package:state_management_examples/mobx/counter_page.dart';
@@ -102,6 +103,7 @@ class MainDrawer extends StatelessWidget {
               Divider(height: 0),
               ListTile(
                 title: Text('GetX'),
+                onTap: () => _navigateTo(context, GetXCounterPage()),
               ),
               Divider(height: 0),
             ],

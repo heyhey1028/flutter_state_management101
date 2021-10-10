@@ -18,6 +18,7 @@ dependencies:
   flutter_redux: ^0.8.2
   flutter_riverpod: ^0.14.0+3
   flutter_state_notifier: ^0.7.1
+  get: 4.1.4
   hooks_riverpod: ^0.14.0+5
   provider: ^6.0.1
   redux: ^5.0.0

@@ -11,13 +11,13 @@ class MobxCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) => CounterStore(),
-      child: MobxCounterPageBody(),
+      child: _MobxCounterPage(),
     );
   }
 }
 
-class MobxCounterPageBody extends StatelessWidget {
-  const MobxCounterPageBody({Key key}) : super(key: key);
+class _MobxCounterPage extends StatelessWidget {
+  const _MobxCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

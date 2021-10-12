@@ -29,13 +29,13 @@ class ProviderCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => ProviderCounterPageState(),
-      child: ProviderCounterPageBody(),
+      child: _ProviderCounterPage(),
     );
   }
 }
 
-class ProviderCounterPageBody extends StatelessWidget {
-  const ProviderCounterPageBody({Key key}) : super(key: key);
+class _ProviderCounterPage extends StatelessWidget {
+  const _ProviderCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

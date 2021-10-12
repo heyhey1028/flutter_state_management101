@@ -16,13 +16,13 @@ class CubitCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<CounterCubit>(
       create: (context) => CounterCubit(),
-      child: const CubitCounterPageBody(),
+      child: const _CubitCounterPage(),
     );
   }
 }
 
-class CubitCounterPageBody extends StatelessWidget {
-  const CubitCounterPageBody({Key key}) : super(key: key);
+class _CubitCounterPage extends StatelessWidget {
+  const _CubitCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

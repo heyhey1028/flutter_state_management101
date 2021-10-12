@@ -53,13 +53,13 @@ class ReduxCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider(
       store: store,
-      child: ReduxCounterPageBody(),
+      child: _ReduxCounterPage(),
     );
   }
 }
 
-class ReduxCounterPageBody extends StatelessWidget {
-  const ReduxCounterPageBody({Key key}) : super(key: key);
+class _ReduxCounterPage extends StatelessWidget {
+  const _ReduxCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

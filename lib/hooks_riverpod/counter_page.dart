@@ -26,13 +26,13 @@ class HooksRiverpodCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      child: HooksRiverpodCounterPageBody(),
+      child: _HooksRiverpodCounterPage(),
     );
   }
 }
 
-class HooksRiverpodCounterPageBody extends HookWidget {
-  const HooksRiverpodCounterPageBody({Key key}) : super(key: key);
+class _HooksRiverpodCounterPage extends HookWidget {
+  const _HooksRiverpodCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -23,13 +23,13 @@ class RiverpodCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      child: RiverpodCounterConsumerPageBody(),
+      child: _RiverpodCounterConsumerPage(),
     );
   }
 }
 
-class RiverpodCounterConsumerPageBody extends StatelessWidget {
-  const RiverpodCounterConsumerPageBody({Key key}) : super(key: key);
+class _RiverpodCounterConsumerPage extends StatelessWidget {
+  const _RiverpodCounterConsumerPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

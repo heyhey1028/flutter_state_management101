@@ -25,13 +25,13 @@ class StateNotifierCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StateNotifierProvider<CounterStateNotifier, CounterState>(
       create: (context) => CounterStateNotifier(),
-      child: const StateNotifierCounterPageBody(),
+      child: const _StateNotifierCounterPage(),
     );
   }
 }
 
-class StateNotifierCounterPageBody extends StatelessWidget {
-  const StateNotifierCounterPageBody({Key key}) : super(key: key);
+class _StateNotifierCounterPage extends StatelessWidget {
+  const _StateNotifierCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

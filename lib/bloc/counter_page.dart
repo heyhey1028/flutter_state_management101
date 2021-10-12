@@ -45,13 +45,13 @@ class BlocCounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<CounterBloc>(
       create: (context) => CounterBloc(),
-      child: const BlocCounterPageBody(),
+      child: const _BlocCounterPage(),
     );
   }
 }
 
-class BlocCounterPageBody extends StatelessWidget {
-  const BlocCounterPageBody({Key key}) : super(key: key);
+class _BlocCounterPage extends StatelessWidget {
+  const _BlocCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -21,6 +21,8 @@ we need to install both packages.
 - To change state, UI will dispatch an action class.
 - store will receive the action and will run corresponding reducer, creating new instance of state.
 - middleware comes in between Action and Reducer
+<img width="453" alt="スクリーンショット 2021-10-04 22 02 32" src="https://user-images.githubusercontent.com/44666053/137484916-004b6969-4344-4b37-8970-48ea1165abba.png">
+
 
 ## Getting started 
 - instantiate a store at root of the app.

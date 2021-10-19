@@ -33,7 +33,6 @@ class _CubitCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('Cubit'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
@@ -70,7 +69,6 @@ class _ReduxCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('Redux'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

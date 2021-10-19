@@ -13,8 +13,8 @@ class NavigateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
-      child: SizedBox(
-        width: 180,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minWidth: 180),
         child: ElevatedButton(
           onPressed: () => _navigateTo(context, navigateTo),
           child: Text(title),

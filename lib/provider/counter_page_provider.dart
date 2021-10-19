@@ -1,46 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/widgets/main_drawer.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
 
-@immutable
-class RiverpodCounterState {
-  RiverpodCounterState({this.count});
-  final int count;
+class ChangeNotifierProviderCounterState extends ChangeNotifier {
+  int _counter = 0;
+  int get counter => _counter;
+
+  void incrementCounter() {
+    _counter++;
+    notifyListeners();
+  }
+
+  void decrementCounter() {
+    _counter--;
+    notifyListeners();
+  }
+
+  void resetCounter() {
+    _counter = 0;
+    notifyListeners();
+  }
 }
 
-class RiverpodCounterStateNotifier extends StateNotifier<RiverpodCounterState> {
-  RiverpodCounterStateNotifier() : super(RiverpodCounterState(count: 0));
-  // when not using freezed, you need to substitute new State into managed state
-  void increment() => state = RiverpodCounterState(count: state.count + 1);
-  void decrement() => state = RiverpodCounterState(count: state.count - 1);
-  void clear() => state = RiverpodCounterState(count: 0);
-}
+class ChangeNotifierProviderCounterPage extends StatelessWidget {
+  const ChangeNotifierProviderCounterPage({Key key}) : super(key: key);
 
-final counterProvider =
-    StateNotifierProvider((ref) => RiverpodCounterStateNotifier());
-
-class RiverpodCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
-      child: _RiverpodCounterConsumerPage(),
+    return ChangeNotifierProvider(
+      create: (_) => ChangeNotifierProviderCounterState(),
+      child: _ChangeNotifierProviderCounterPage(),
     );
   }
 }
 
-class _RiverpodCounterConsumerPage extends StatelessWidget {
-  const _RiverpodCounterConsumerPage({Key key}) : super(key: key);
+class _ChangeNotifierProviderCounterPage extends StatelessWidget {
+  const _ChangeNotifierProviderCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     print('rebuild!');
-
+    final ChangeNotifierProviderCounterState unListenState =
+        context.read<ChangeNotifierProviderCounterState>();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('StateNotifier x Riverpod'),
+        title: Text('ChangeNotifier x Provider'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -48,9 +54,9 @@ class _RiverpodCounterConsumerPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Consumer(
-              builder: (context, watch, _) => Text(
-                '${watch(counterProvider).count}',
+            Consumer<ChangeNotifierProviderCounterState>(
+              builder: (context, state, _) => Text(
+                '${state.counter}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
@@ -62,23 +68,21 @@ class _RiverpodCounterConsumerPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FloatingActionButton(
-              onPressed: () =>
-                  context.read(counterProvider.notifier).increment(),
+              onPressed: unListenState.incrementCounter,
               tooltip: 'Increment',
               heroTag: 'Increment',
               child: Icon(Icons.add),
             ),
             const SizedBox(width: 16),
             FloatingActionButton(
-              onPressed: () =>
-                  context.read(counterProvider.notifier).decrement(),
+              onPressed: unListenState.decrementCounter,
               tooltip: 'Decrement',
               heroTag: 'Decrement',
               child: Icon(Icons.remove),
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => context.read(counterProvider.notifier).clear(),
+              onPressed: unListenState.resetCounter,
               tooltip: 'Clear',
               heroTag: 'Clear',
               label: Text('CLEAR'),

@@ -1,2 +1,0 @@
-# Cubit Counter
-

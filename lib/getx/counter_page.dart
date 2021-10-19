@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:get/get.dart';
 
 class Human {
@@ -33,7 +32,6 @@ class GetXCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('GetX'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

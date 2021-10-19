@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
-import 'package:flutter_state_notifier/flutter_state_notifier.dart';
-import 'package:provider/provider.dart';
-import 'package:state_notifier/state_notifier.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @immutable
 class CounterState {
@@ -18,20 +15,19 @@ class CounterStateNotifier extends StateNotifier<CounterState> {
   void clear() => state = CounterState(count: 0);
 }
 
-class StateNotifierCounterPage extends StatelessWidget {
-  const StateNotifierCounterPage({Key key}) : super(key: key);
+final counterProvider = StateNotifierProvider((ref) => CounterStateNotifier());
 
+class StateNotifierRiverpodCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StateNotifierProvider<CounterStateNotifier, CounterState>(
-      create: (context) => CounterStateNotifier(),
-      child: const _StateNotifierCounterPage(),
+    return ProviderScope(
+      child: _StateNotifierRiverpodCounterPage(),
     );
   }
 }
 
-class _StateNotifierCounterPage extends StatelessWidget {
-  const _StateNotifierCounterPage({Key key}) : super(key: key);
+class _StateNotifierRiverpodCounterPage extends StatelessWidget {
+  const _StateNotifierRiverpodCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +36,8 @@ class _StateNotifierCounterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('StateNotifier x Provider'),
+        title: Text('Riverpod'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +45,9 @@ class _StateNotifierCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            // Consumer is also valid for stateNotifier solution to narrow the rebuild scope
-            Consumer<CounterState>(
-              builder: (context, state, _) => Text(
-                state.count.toString(),
+            Consumer(
+              builder: (context, watch, _) => Text(
+                '${watch(counterProvider).count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
@@ -65,21 +59,23 @@ class _StateNotifierCounterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().increment(),
+              onPressed: () =>
+                  context.read(counterProvider.notifier).increment(),
               tooltip: 'Increment',
               heroTag: 'Increment',
               child: Icon(Icons.add),
             ),
             const SizedBox(width: 16),
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().decrement(),
+              onPressed: () =>
+                  context.read(counterProvider.notifier).decrement(),
               tooltip: 'Decrement',
               heroTag: 'Decrement',
               child: Icon(Icons.remove),
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => context.read<CounterStateNotifier>().clear(),
+              onPressed: () => context.read(counterProvider.notifier).clear(),
               tooltip: 'Clear',
               heroTag: 'Clear',
               label: Text('CLEAR'),

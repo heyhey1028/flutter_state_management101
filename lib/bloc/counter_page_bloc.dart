@@ -63,7 +63,6 @@ class _BlocCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('BLoC'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -14,9 +14,11 @@ Hope this will be any help to your journey to become a better flutter developer.
 - StatefulWidget
 - ChangeNotifier x Provider
 - MobX x Provider
+- GetX
 ### Immutable State
 - BLoC(Cubit)
 - StateNotifier x Provider
 - Redux
+- RxDart
 
 ------------------------

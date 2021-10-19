@@ -30,7 +30,6 @@ class _MobxCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('MobX x Provider'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

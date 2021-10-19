@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:get/get.dart';
 
+class Human {
+  Human({this.name, this.age});
+  final String name;
+  final int age;
+}
+
 class GetXCounterController extends GetxController {
+  Rx<Human> human = Human(name: 'John', age: 18).obs;
   RxInt _counter = 0.obs;
   RxInt get counter => _counter;
 

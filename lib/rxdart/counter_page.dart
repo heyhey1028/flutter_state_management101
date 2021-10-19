@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:rxdart/rxdart.dart';
 
 class RxCounterBloc {
@@ -44,7 +43,6 @@ class RxdartCounterPage extends StatelessWidget {
         centerTitle: true,
         title: Text('RxDart'),
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

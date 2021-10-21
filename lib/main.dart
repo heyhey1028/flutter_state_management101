@@ -25,7 +25,9 @@ class MainPage extends StatelessWidget {
       body: Center(
         child: Container(
           child: Text(
-            'THANKS FOR VISITING!!\n' 'THIS IS MAIN PAGE',
+            'THANKS FOR VISITING!!\n'
+            'This is Every thing you need to know\n'
+            'about State Management in Flutter',
             textAlign: TextAlign.center,
           ),
         ),

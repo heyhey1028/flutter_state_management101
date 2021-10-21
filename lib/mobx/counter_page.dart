@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management_examples/mobx/counter_store.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class MobxCounterPage extends StatelessWidget {

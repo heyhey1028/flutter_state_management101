@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 

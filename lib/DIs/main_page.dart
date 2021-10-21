@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:state_management_examples/DIs/get_it.dart';
 import 'package:state_management_examples/DIs/hooks_riverpod.dart';
+import 'package:state_management_examples/DIs/provider.dart';
 import 'package:state_management_examples/DIs/riverpod.dart';
-
-import 'package:state_management_examples/getx/counter_page.dart';
-import 'package:state_management_examples/state_notifier/counter_page_provider.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
@@ -31,8 +30,12 @@ class DIMainPage extends StatelessWidget {
                 title: 'Hooks Riverpod',
               ),
               NavigateButton(
-                navigateTo: null,
+                navigateTo: StateNotifierGetItCounterPage(),
                 title: 'Getit',
+              ),
+              NavigateButton(
+                navigateTo: null,
+                title: 'Getit x Injectable',
               ),
             ],
           ),

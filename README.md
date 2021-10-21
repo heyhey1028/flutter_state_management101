@@ -9,6 +9,8 @@ This has allowed myself to identify what each packages really are.
 
 Hope this will be any help to your journey to become a better flutter developer.
 
+This is everything you need to know about state management in Flutter.
+
 ## Two Paradigms of State Management Solutions
 ### Mutable State
 - StatefulWidget

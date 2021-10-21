@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_notifier/counter_page_provider.dart';
+import 'package:state_management_examples/state_notifier/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
@@ -15,7 +15,7 @@ class StateNotifierMainPage extends StatelessWidget {
             children: [
               Text('WELCOME! This is StateNotifier Page'),
               NavigateButton(
-                navigateTo: StateNotifierProviderCounterPage(),
+                navigateTo: StateNotifierCounterPage(),
                 title: 'StateNotifier with Provider',
               ),
             ],

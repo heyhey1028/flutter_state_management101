@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
-import 'package:flutter_state_notifier/flutter_state_notifier.dart';
-import 'package:provider/provider.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'package:get_it/get_it.dart';
 
 @immutable
 class CounterState {
@@ -12,29 +10,31 @@ class CounterState {
 
 class CounterStateNotifier extends StateNotifier<CounterState> {
   CounterStateNotifier() : super(CounterState(count: 0));
+  CounterState get state => state;
   // when not using freezed, you need to substitute new State into managed state
   void increment() => state = CounterState(count: state.count + 1);
   void decrement() => state = CounterState(count: state.count - 1);
   void clear() => state = CounterState(count: 0);
 }
 
-class StateNotifierProviderCounterPage extends StatelessWidget {
-  const StateNotifierProviderCounterPage({Key key}) : super(key: key);
+final locator = GetIt.instance;
+
+class StateNotifierGetItCounterPage extends StatelessWidget {
+  const StateNotifierGetItCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return StateNotifierProvider<CounterStateNotifier, CounterState>(
-      create: (context) => CounterStateNotifier(),
-      child: const _StateNotifierProviderCounterPage(),
-    );
+    locator.registerSingleton<CounterStateNotifier>(CounterStateNotifier());
+    return const _StateNotifierGetItCounterPage();
   }
 }
 
-class _StateNotifierProviderCounterPage extends StatelessWidget {
-  const _StateNotifierProviderCounterPage({Key key}) : super(key: key);
+class _StateNotifierGetItCounterPage extends StatelessWidget {
+  const _StateNotifierGetItCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final CounterStateNotifier state = locator<CounterStateNotifier>();
     print('rebuild!');
 
     return Scaffold(
@@ -49,13 +49,10 @@ class _StateNotifierProviderCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            // Consumer is also valid for stateNotifier solution to narrow the rebuild scope
-            Consumer<CounterState>(
-              builder: (context, state, _) => Text(
-                state.count.toString(),
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ),
+            Text(
+              state.state.count.toString(),
+              style: Theme.of(context).textTheme.headline4,
+            )
           ],
         ),
       ),
@@ -64,21 +61,21 @@ class _StateNotifierProviderCounterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().increment(),
+              onPressed: () => state.increment(),
               tooltip: 'Increment',
               heroTag: 'Increment',
               child: Icon(Icons.add),
             ),
             const SizedBox(width: 16),
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().decrement(),
+              onPressed: () => state.decrement(),
               tooltip: 'Decrement',
               heroTag: 'Decrement',
               child: Icon(Icons.remove),
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => context.read<CounterStateNotifier>().clear(),
+              onPressed: () => state.clear(),
               tooltip: 'Clear',
               heroTag: 'Clear',
               label: Text('CLEAR'),

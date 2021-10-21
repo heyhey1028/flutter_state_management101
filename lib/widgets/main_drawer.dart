@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/DIs/main_page.dart';
 import 'package:state_management_examples/bloc/main_page.dart';
+import 'package:state_management_examples/data_classes/main_page.dart';
 import 'package:state_management_examples/getx/main_page.dart';
 import 'package:state_management_examples/main.dart';
 import 'package:state_management_examples/mobx/main_page.dart';
@@ -92,6 +93,11 @@ class MainDrawer extends StatelessWidget {
               ListTile(
                 title: Text('Dependency Injection'),
                 onTap: () => _navigateTo(context, DIMainPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text('Data Classes'),
+                onTap: () => _navigateTo(context, DataClassMainPage()),
               ),
               Divider(height: 0),
             ],

@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/widgets/main_drawer.dart';
 import 'package:provider/provider.dart';
 
+class CounterObj {
+  CounterObj() : count = 0;
+  int count;
+}
+
 class ChangeNotifierProviderCounterState extends ChangeNotifier {
-  int _counter = 0;
-  int get counter => _counter;
+  ChangeNotifierProviderCounterState() : obj = CounterObj();
+  CounterObj obj;
 
   void incrementCounter() {
-    _counter++;
+    obj.count++;
     notifyListeners();
   }
 
   void decrementCounter() {
-    _counter--;
+    obj.count--;
     notifyListeners();
   }
 
   void resetCounter() {
-    _counter = 0;
+    obj.count = 0;
     notifyListeners();
   }
 }
@@ -56,7 +60,7 @@ class _ChangeNotifierProviderCounterPage extends StatelessWidget {
             ),
             Consumer<ChangeNotifierProviderCounterState>(
               builder: (context, state, _) => Text(
-                '${state.counter}',
+                '${state.obj.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

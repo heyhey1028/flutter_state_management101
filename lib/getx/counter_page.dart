@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Human {
-  Human({this.name, this.age});
-  final String name;
-  final int age;
+class CounterState {
+  CounterState() : count = 0.obs;
+  RxInt count;
 }
 
 class GetXCounterController extends GetxController {
-  Rx<Human> human = Human(name: 'John', age: 18).obs;
-  RxInt _counter = 0.obs;
-  RxInt get counter => _counter;
+  Rx<CounterState> _counter = CounterState().obs;
+  Rx<CounterState> get counter => _counter;
 
-  void incrementCounter() => _counter.value++;
+  void incrementCounter() => _counter.value.count++;
 
-  void decrementCounter() => _counter.value--;
+  void decrementCounter() => _counter.value.count--;
 
-  void resetCounter() => _counter.value = 0;
+  void resetCounter() => _counter.value.count.value = 0;
 }
 
 class GetXCounterPage extends StatelessWidget {
@@ -41,7 +39,7 @@ class GetXCounterPage extends StatelessWidget {
             ),
             Obx(
               () => Text(
-                '${c.counter}',
+                '${c.counter.value.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

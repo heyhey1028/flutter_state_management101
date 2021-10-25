@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
+class CounterObj {
+  CounterObj(this.count);
+  int count;
+}
+
 class RxCounterBloc {
-  int initialCount = 0;
-  BehaviorSubject<int> _counterSubject;
-  RxCounterBloc({this.initialCount}) {
-    _counterSubject = BehaviorSubject<int>.seeded(this.initialCount);
+  CounterObj state;
+  BehaviorSubject<CounterObj> _counterSubject;
+  RxCounterBloc({this.state}) {
+    _counterSubject = BehaviorSubject<CounterObj>.seeded(this.state);
   }
 
   Stream get counterStream => _counterSubject.stream;
 
   void increment() {
-    initialCount++;
-    _counterSubject.sink.add(initialCount);
+    state = CounterObj(state.count + 1);
+    _counterSubject.sink.add(state);
   }
 
   void decrement() {
-    initialCount--;
-    _counterSubject.sink.add(initialCount);
+    state = CounterObj(state.count - 1);
+    _counterSubject.sink.add(state);
   }
 
   void clear() {
-    initialCount = 0;
-    _counterSubject.sink.add(initialCount);
+    state = CounterObj(0);
+    _counterSubject.sink.add(state);
   }
 
   void dispose() {
@@ -35,13 +41,25 @@ class RxdartCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RxCounterBloc counter = RxCounterBloc(initialCount: 0);
+    return Provider<RxCounterBloc>(
+      create: (_) => RxCounterBloc(state: CounterObj(0)),
+      child: _RxdartCounterPage(),
+    );
+  }
+}
+
+class _RxdartCounterPage extends StatelessWidget {
+  const _RxdartCounterPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final RxCounterBloc counter = Provider.of<RxCounterBloc>(context);
     print('rebuild!');
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('RxDart'),
+        title: Text('RxDart x Provider'),
       ),
       body: Center(
         child: Column(
@@ -50,11 +68,13 @@ class RxdartCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            StreamBuilder<int>(
+            StreamBuilder<CounterObj>(
+              initialData: CounterObj(0),
               stream: counter.counterStream,
-              builder: (BuildContext context, AsyncSnapshot<int> snapshot) =>
-                  Text(
-                '${snapshot.data}',
+              builder:
+                  (BuildContext context, AsyncSnapshot<CounterObj> snapshot) =>
+                      Text(
+                snapshot.data.count.toString(),
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

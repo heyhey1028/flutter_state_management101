@@ -38,7 +38,7 @@ class _MobxCounterPage extends StatelessWidget {
             ),
             Observer(
               builder: (context) => Text(
-                '${store.count}',
+                '${store.countObj.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

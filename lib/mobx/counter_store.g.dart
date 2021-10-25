@@ -9,18 +9,18 @@ part of 'counter_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$CounterStore on CounterStoreBase, Store {
-  final _$countAtom = Atom(name: 'CounterStoreBase.count');
+  final _$countObjAtom = Atom(name: 'CounterStoreBase.countObj');
 
   @override
-  int get count {
-    _$countAtom.reportRead();
-    return super.count;
+  CounterObj get countObj {
+    _$countObjAtom.reportRead();
+    return super.countObj;
   }
 
   @override
-  set count(int value) {
-    _$countAtom.reportWrite(value, super.count, () {
-      super.count = value;
+  set countObj(CounterObj value) {
+    _$countObjAtom.reportWrite(value, super.countObj, () {
+      super.countObj = value;
     });
   }
 
@@ -63,7 +63,7 @@ mixin _$CounterStore on CounterStoreBase, Store {
   @override
   String toString() {
     return '''
-count: ${count}
+countObj: ${countObj}
     ''';
   }
 }

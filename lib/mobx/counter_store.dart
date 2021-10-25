@@ -2,24 +2,29 @@ import 'package:mobx/mobx.dart';
 
 part 'counter_store.g.dart';
 
+class CounterObj {
+  CounterObj(this.count);
+  int count;
+}
+
 class CounterStore = CounterStoreBase with _$CounterStore;
 
 abstract class CounterStoreBase with Store {
   @observable
-  int count = 0;
+  CounterObj countObj = CounterObj(0);
 
   @action
   void increment() {
-    count++;
+    countObj = CounterObj(countObj.count + 1);
   }
 
   @action
   void decrement() {
-    count--;
+    countObj = CounterObj(countObj.count - 1);
   }
 
   @action
   void clear() {
-    count = 0;
+    countObj = CounterObj(0);
   }
 }

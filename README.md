@@ -15,12 +15,13 @@ This is everything you need to know about state management in Flutter.
 ### Mutable State
 - StatefulWidget
 - ChangeNotifier x Provider
-- MobX x Provider
 - GetX
 ### Immutable State
 - BLoC(Cubit)
 - StateNotifier x Provider
 - Redux
 - RxDart
+- MobX x Provider
+
 
 ------------------------

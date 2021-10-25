@@ -2,32 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
-class CounterObj {
-  CounterObj(this.count);
+class CounterState {
+  CounterState(this.count);
   int count;
 }
 
 class RxCounterBloc {
-  CounterObj state;
-  BehaviorSubject<CounterObj> _counterSubject;
+  CounterState state;
+  BehaviorSubject<CounterState> _counterSubject;
   RxCounterBloc({this.state}) {
-    _counterSubject = BehaviorSubject<CounterObj>.seeded(this.state);
+    _counterSubject = BehaviorSubject<CounterState>.seeded(this.state);
   }
 
   Stream get counterStream => _counterSubject.stream;
 
   void increment() {
-    state = CounterObj(state.count + 1);
+    state = CounterState(state.count + 1);
     _counterSubject.sink.add(state);
   }
 
   void decrement() {
-    state = CounterObj(state.count - 1);
+    state = CounterState(state.count - 1);
     _counterSubject.sink.add(state);
   }
 
   void clear() {
-    state = CounterObj(0);
+    state = CounterState(0);
     _counterSubject.sink.add(state);
   }
 
@@ -42,7 +42,7 @@ class RxdartCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider<RxCounterBloc>(
-      create: (_) => RxCounterBloc(state: CounterObj(0)),
+      create: (_) => RxCounterBloc(state: CounterState(0)),
       child: _RxdartCounterPage(),
     );
   }
@@ -68,12 +68,12 @@ class _RxdartCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            StreamBuilder<CounterObj>(
-              initialData: CounterObj(0),
+            StreamBuilder<CounterState>(
+              initialData: CounterState(0),
               stream: counter.counterStream,
-              builder:
-                  (BuildContext context, AsyncSnapshot<CounterObj> snapshot) =>
-                      Text(
+              builder: (BuildContext context,
+                      AsyncSnapshot<CounterState> snapshot) =>
+                  Text(
                 snapshot.data.count.toString(),
                 style: Theme.of(context).textTheme.headline4,
               ),

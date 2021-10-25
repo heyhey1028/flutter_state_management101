@@ -12,13 +12,13 @@ mixin _$CounterStore on CounterStoreBase, Store {
   final _$countObjAtom = Atom(name: 'CounterStoreBase.countObj');
 
   @override
-  CounterObj get countObj {
+  CounterState get countObj {
     _$countObjAtom.reportRead();
     return super.countObj;
   }
 
   @override
-  set countObj(CounterObj value) {
+  set countObj(CounterState value) {
     _$countObjAtom.reportWrite(value, super.countObj, () {
       super.countObj = value;
     });

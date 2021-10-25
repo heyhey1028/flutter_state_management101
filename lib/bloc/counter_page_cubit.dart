@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CounterCubit extends Cubit<int> {
-  CounterCubit() : super(0);
-  void increment() => emit(state + 1);
-  void decrement() => emit(state - 1);
-  void clear() => emit(0);
+@immutable
+class CounterObj {
+  CounterObj(this.count);
+  final int count;
+}
+
+class CounterCubit extends Cubit<CounterObj> {
+  CounterCubit() : super(CounterObj(0));
+  void increment() => emit(CounterObj(state.count + 1));
+  void decrement() => emit(CounterObj(state.count - 1));
+  void clear() => emit(CounterObj(0));
 }
 
 class CubitCounterPage extends StatelessWidget {
@@ -39,9 +45,9 @@ class _CubitCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterCubit, int>(
+            BlocBuilder<CounterCubit, CounterObj>(
               builder: (context, state) => Text(
-                '$state',
+                '${state.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

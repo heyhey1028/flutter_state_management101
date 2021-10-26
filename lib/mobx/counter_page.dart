@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management_examples/mobx/counter_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 class MobxCounterPage extends StatelessWidget {
   const MobxCounterPage({Key key}) : super(key: key);
@@ -25,9 +26,8 @@ class _MobxCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('MobX x Provider'),
+      appBar: MainAppBar(
+        title: 'MobX x Provider',
       ),
       body: Center(
         child: Column(

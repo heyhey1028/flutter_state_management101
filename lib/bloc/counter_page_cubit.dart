@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 @immutable
 class CounterState {
@@ -34,9 +35,8 @@ class _CubitCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Cubit'),
+      appBar: MainAppBar(
+        title: 'Cubit',
       ),
       body: Center(
         child: Column(

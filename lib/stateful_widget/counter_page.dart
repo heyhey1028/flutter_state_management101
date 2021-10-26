@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 import 'package:state_management_examples/widgets/main_drawer.dart';
 
 class CounterState {
@@ -40,9 +41,8 @@ class _StatefulWidgetCounterPageState extends State<StatefulWidgetCounterPage> {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('StatefulWidget'),
+      appBar: MainAppBar(
+        title: 'StatefulWidget',
       ),
       drawer: MainDrawer(),
       body: Center(

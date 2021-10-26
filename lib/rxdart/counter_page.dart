@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 class CounterState {
   CounterState(this.count);
@@ -57,9 +58,8 @@ class _RxdartCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('RxDart x Provider'),
+      appBar: MainAppBar(
+        title: 'RxDart x Provider',
       ),
       body: Center(
         child: Column(

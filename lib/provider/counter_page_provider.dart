@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 class CounterObj {
   CounterObj() : count = 0;
@@ -47,9 +48,8 @@ class _ChangeNotifierProviderCounterPage extends StatelessWidget {
     final ChangeNotifierProviderCounterState unListenState =
         context.read<ChangeNotifierProviderCounterState>();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('ChangeNotifier x Provider'),
+      appBar: MainAppBar(
+        title: 'ChangeNotifier x Provider',
       ),
       body: Center(
         child: Column(

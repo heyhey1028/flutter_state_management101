@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 class CounterState {
   CounterState() : count = 0.obs;
@@ -26,9 +27,8 @@ class GetXCounterPage extends StatelessWidget {
     final GetXCounterController c = Get.put(GetXCounterController());
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('GetX'),
+      appBar: MainAppBar(
+        title: 'GetX',
       ),
       body: Center(
         child: Column(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 abstract class CounterEvent extends Equatable {
   const CounterEvent();
@@ -58,9 +59,8 @@ class _BlocCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('BLoC'),
+      appBar: MainAppBar(
+        title: 'BLoC',
       ),
       body: Center(
         child: Column(

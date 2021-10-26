@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
 @immutable
 class ReduxCounterState {
@@ -65,9 +66,8 @@ class _ReduxCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Redux'),
+      appBar: MainAppBar(
+        title: 'Redux',
       ),
       body: Center(
         child: Column(

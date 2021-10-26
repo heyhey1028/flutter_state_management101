@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 @immutable
@@ -37,9 +38,8 @@ class _StateNotifierCounterPage extends StatelessWidget {
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('StateNotifier x Provider'),
+      appBar: MainAppBar(
+        title: 'StateNotifier x Provider',
       ),
       body: Center(
         child: Column(

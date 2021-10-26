@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_examples/widgets/main_drawer.dart';
 
+class CounterState {
+  CounterState({this.count});
+  int count;
+}
+
 class StatefulWidgetCounterPage extends StatefulWidget {
   StatefulWidgetCounterPage();
 
@@ -10,28 +15,30 @@ class StatefulWidgetCounterPage extends StatefulWidget {
 }
 
 class _StatefulWidgetCounterPageState extends State<StatefulWidgetCounterPage> {
-  int _counter = 0;
+  CounterState _counter = CounterState(count: 0);
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _counter.count++;
     });
   }
 
   void _decrementCounter() {
     setState(() {
-      _counter--;
+      _counter.count--;
     });
   }
 
   void _resetCounter() {
     setState(() {
-      _counter = 0;
+      _counter.count = 0;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    print('rebuild!');
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -46,7 +53,7 @@ class _StatefulWidgetCounterPageState extends State<StatefulWidgetCounterPage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${_counter.count}',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],

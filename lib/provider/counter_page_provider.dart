@@ -7,8 +7,8 @@ class CounterObj {
   int count;
 }
 
-class ChangeNotifierProviderCounterState extends ChangeNotifier {
-  ChangeNotifierProviderCounterState() : obj = CounterObj();
+class ProviderCounterState extends ChangeNotifier {
+  ProviderCounterState() : obj = CounterObj();
   CounterObj obj;
 
   void incrementCounter() {
@@ -27,26 +27,26 @@ class ChangeNotifierProviderCounterState extends ChangeNotifier {
   }
 }
 
-class ChangeNotifierProviderCounterPage extends StatelessWidget {
-  const ChangeNotifierProviderCounterPage({Key key}) : super(key: key);
+class ProviderCounterPage extends StatelessWidget {
+  const ProviderCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => ChangeNotifierProviderCounterState(),
-      child: _ChangeNotifierProviderCounterPage(),
+      create: (_) => ProviderCounterState(),
+      child: _ProviderCounterPage(),
     );
   }
 }
 
-class _ChangeNotifierProviderCounterPage extends StatelessWidget {
-  const _ChangeNotifierProviderCounterPage({Key key}) : super(key: key);
+class _ProviderCounterPage extends StatelessWidget {
+  const _ProviderCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     print('rebuild!');
-    final ChangeNotifierProviderCounterState unListenState =
-        context.read<ChangeNotifierProviderCounterState>();
+    final ProviderCounterState unListenState =
+        context.read<ProviderCounterState>();
     return Scaffold(
       appBar: MainAppBar(
         title: 'ChangeNotifier x Provider',
@@ -58,7 +58,7 @@ class _ChangeNotifierProviderCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Consumer<ChangeNotifierProviderCounterState>(
+            Consumer<ProviderCounterState>(
               builder: (context, state, _) => Text(
                 '${state.obj.count}',
                 style: Theme.of(context).textTheme.headline4,

@@ -15,7 +15,7 @@ class ChangeNotifierMainPage extends StatelessWidget {
             children: [
               Text('WELCOME! This is ChangeNotifier(Provider) Page'),
               NavigateButton(
-                navigateTo: ChangeNotifierProviderCounterPage(),
+                navigateTo: ProviderCounterPage(),
                 title: 'ChangeNotifier with Provider',
               ),
             ],

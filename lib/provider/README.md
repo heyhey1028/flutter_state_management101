@@ -4,7 +4,7 @@ package: [provider](https://pub.dev/packages/provider) v6.0.1
 ## 概要
 - 現在最もポピュラーな状態管理用パッケージ 
 - Googleも状態管理パッケージの中でもオススメしているパッケージ
-- providerだけでなく、stateNotifierやRiverpod、freezedなど数多くの人気Flutterパッケージをリリースしている[Remi Rousselet](https://github.com/rrousselGit)氏が制作
+- providerだけでなく、stateNotifierやRiverpod、freezedなど数多くの人気Flutterパッケージをリリースしている[Remi Rousselet](https://github.com/rrousselGit)氏が開発
 - 初版リリースは2018年10月
 
 ## 全体像
@@ -17,7 +17,7 @@ package: [provider](https://pub.dev/packages/provider) v6.0.1
 
 Widgetは状態管理クラスの変数やメソッドをProviderを通してアクセスします。変数を変更した際は用意されている通知メソッドを実行し、変数を利用しているクラスに通知。その通知を受けったクラス達は新しい値で自身を再生成(リビルド)する事になります。
 
-## キーとなるクラス
+## キーとなるクラスやメソッド
 - `ChangeNotifier`クラス：状態管理クラスが継承するクラス
 - `ChangeNotifierProvider`クラス：状態管理クラスを注入するクラス
 - `notifyListener`メソッド：状態変更を通知するメソッド
@@ -155,3 +155,5 @@ BlocやRedux、GetXなど他の状態管理手法とProviderを同列で比較�
 「`Provider`(パターン) = `ChangeNotifier` x `ChangeNotifierProvider` の組み合わせ」
 
 と言うニュアンスで考えるのが良さそうです。ちょっと「Providerパターン」なんて名前があるかは定かじゃありませんが。
+
+## 参考文献

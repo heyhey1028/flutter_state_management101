@@ -2,7 +2,7 @@
 package: [provider](https://pub.dev/packages/provider) v6.0.1
 
 ## 概要
-- 現在最もポピュラーな状態管理パッケージ 
+- 現在最もポピュラーな状態管理用パッケージ 
 - Googleも状態管理パッケージの中でもオススメしているパッケージ
 - providerだけでなく、stateNotifierやRiverpod、freezedなど数多くの人気Flutterパッケージをリリースしている[Remi Rousselet](https://github.com/rrousselGit)氏が制作
 - 初版リリースは2018年10月
@@ -136,3 +136,22 @@ Consumer<ProviderCounterState>(
 ```
 - 実際に状態値を参照して描画しているText widgetだけを`Consumer`クラスでラップする事で状態値が変更しても再描画されるのはラップされたText Widgetだけになりました
 - `Consumer`クラスの他に特定の状態値だけを監視し、`Selector`クラスを使う事で再描画される条件をより絞る事が出来ます。
+
+## 実は...
+### **Providerは状態管理手法の事じゃない**：
+最もポピュラーな状態管理手法としてProviderが紹介される事が多いが、実際Providerパッケージから利用してるのは状態管理クラスをWidgteツリーに沿って流し込む`ChangeNotifierProvider`であって、状態管理クラスの`ChangeNotifier`自体ではありません。
+
+そういう意味で言うと`Provider`は依存関係の注入を手助けするパッケージであって、状態管理手法自体ではありません。
+
+どうもGoogleIOにて`Provider`パッケージを状態管理手法として紹介した事が元凶のようです。
+### **Providerを使うのはProviderだけじゃない**：
+禅問答の様ですが、先の捉え方がなぜややこしいかというとProviderが様々な状態管理手法で使われているからです。状態管理手法として有名なBLoCでも`BlocProvider`クラスによって依存関係をWidgetツリーに沿って流し込んでいきます。
+
+### **Providerと比較されるべきなのはRiverpodやGetItでは？**：
+BlocやRedux、GetXなど他の状態管理手法とProviderを同列で比較するような言い方が多いかと思いますが、「Provider = 依存関係の注入を手助けするパッケージ」という視点から考えれば、Providerパッケージと比較されるべきなのは、 厳密には`Riverpod`やServiceLocatorである`GetIt`だと思います。
+### **Providerパターン、Providerパッケージ**：
+そんな訳で`Provider`という言葉を使うとこんがらがるのですが、状態管理手法としての`Provider`と言う時は
+
+「`Provider`(パターン) = `ChangeNotifier` x `ChangeNotifierProvider` の組み合わせ」
+
+と言うニュアンスで考えるのが良さそうです。ちょっと「Providerパターン」なんて名前があるかは定かじゃありませんが。

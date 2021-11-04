@@ -13,27 +13,29 @@ class IncrementEvent extends CounterEvent {}
 
 class DecrementEvent extends CounterEvent {}
 
-class ClearEvent extends CounterEvent {}
+class ResetEvent extends CounterEvent {}
 
-class CounterState {
-  // ここがEquatableをextendしてたら更新出来ず
-  final int counter;
-  const CounterState({@required this.counter});
+class CounterState extends Equatable {
+  final int count;
+  const CounterState({@required this.count});
+
+  @override
+  List<Object> get props => [count];
 }
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(CounterState(counter: 0));
+  CounterBloc() : super(CounterState(count: 0));
 
   @override
   Stream<CounterState> mapEventToState(CounterEvent event) async* {
     if (event is IncrementEvent) {
-      yield CounterState(counter: state.counter + 1);
+      yield CounterState(count: state.count + 1);
     } else if (event is DecrementEvent) {
-      yield CounterState(counter: state.counter - 1);
-    } else if (event is ClearEvent) {
-      yield CounterState(counter: 0);
+      yield CounterState(count: state.count - 1);
+    } else if (event is ResetEvent) {
+      yield CounterState(count: 0);
     } else {
-      yield CounterState(counter: state.counter);
+      yield CounterState(count: state.count);
     }
   }
 }
@@ -71,7 +73,7 @@ class _BlocCounterPage extends StatelessWidget {
             ),
             BlocBuilder<CounterBloc, CounterState>(
               builder: (context, state) => Text(
-                '${state.counter}',
+                '${state.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
@@ -97,10 +99,10 @@ class _BlocCounterPage extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => counterBloc.add(ClearEvent()),
-              tooltip: 'Clear',
-              heroTag: 'Clear',
-              label: Text('CLEAR'),
+              onPressed: () => counterBloc.add(ResetEvent()),
+              tooltip: 'Reset',
+              heroTag: 'Reset',
+              label: Text('RESET'),
             ),
           ],
         ),

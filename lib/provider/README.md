@@ -63,7 +63,7 @@ class ProviderCounterState extends ChangeNotifier {
 ```
 
 
-`ChangeNotifierProvider`を使って状態管理クラスをレイアウトに注入。
+`ChangeNotifierProvider`を使って状態管理クラスをUIに注入。
 - `create`フィールドで状態管理クラス`ProviderCounterState`をインスタンス化
 - `child`フィールドに定義した`_ProvoiderCounterPage` widgetにインスタンスを注入
 

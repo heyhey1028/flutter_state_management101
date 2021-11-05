@@ -2,6 +2,7 @@
 package:
 - [flutter_redux](https://pub.dev/packages/flutter_redux) v0.8.2
 - [redux](https://pub.dev/packages/redux) v5.0.0
+
 we need to install both packages.
 
 - Redux is more of a state management architecture.
@@ -18,7 +19,7 @@ we need to install both packages.
     4. Reducer
     5. Middleware
 - State is stored in a class `Store`
-- To change state, UI will dispatch an action class.
+- To change state, UI will dispatch an action object.
 - store will receive the action and will run corresponding reducer, creating new instance of state.
 - middleware comes in between Action and Reducer
 <img width="453" alt="スクリーンショット 2021-10-04 22 02 32" src="https://user-images.githubusercontent.com/44666053/137484916-004b6969-4344-4b37-8970-48ea1165abba.png">

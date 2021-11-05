@@ -4,16 +4,16 @@ import 'package:redux/redux.dart';
 import 'package:state_management_examples/widgets/main_appbar.dart';
 
 @immutable
-class ReduxCounterState {
+class CounterState {
   final int count;
-  const ReduxCounterState({this.count = 0});
+  const CounterState({this.count = 0});
 }
 
 @immutable
 class RootState {
-  final ReduxCounterState reduxCounterState;
+  final CounterState reduxCounterState;
 
-  RootState({this.reduxCounterState = const ReduxCounterState()});
+  RootState({this.reduxCounterState = const CounterState()});
 }
 
 class IncrementAction {
@@ -24,18 +24,18 @@ class DecrementAction {
   DecrementAction();
 }
 
-class ClearAction {
-  ClearAction();
+class ResetAction {
+  ResetAction();
 }
 
-ReduxCounterState counterReducer(ReduxCounterState state, action) {
+CounterState counterReducer(CounterState state, action) {
   // type of second argument needs to be `dynamic`, to be able to pass into Store constructor.
   if (action is IncrementAction) {
-    return ReduxCounterState(count: state.count + 1);
+    return CounterState(count: state.count + 1);
   } else if (action is DecrementAction) {
-    return ReduxCounterState(count: state.count - 1);
-  } else if (action is ClearAction) {
-    return ReduxCounterState();
+    return CounterState(count: state.count - 1);
+  } else if (action is ResetAction) {
+    return CounterState();
   } else {
     return state;
   }
@@ -112,13 +112,13 @@ class _ReduxCounterPage extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             StoreConnector<RootState, VoidCallback>(
-              converter: (store) => () => store.dispatch(ClearAction()),
-              builder: (context, dispatchClear) =>
+              converter: (store) => () => store.dispatch(ResetAction()),
+              builder: (context, dispatchReset) =>
                   FloatingActionButton.extended(
-                onPressed: dispatchClear,
-                tooltip: 'Clear',
-                heroTag: 'Clear',
-                label: Text('CLEAR'),
+                onPressed: dispatchReset,
+                tooltip: 'Reset',
+                heroTag: 'Reset',
+                label: Text('RESET'),
               ),
             ),
           ],

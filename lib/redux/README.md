@@ -122,4 +122,54 @@ RootState rootCounterReducer(RootState state, action) {
   final store = Store<RootState>(rootCounterReducer, initialState: RootState());
 ```
 
+### 5. `View`へ注入
+- `redux`パッケージでも依存関係の注入には`Provider`を使用します。
+- `provider`パッケージの時とほぼ同じです。違いは`flutter_redux`パッケージの`StoreProvider`を使う事くらい。
+- `store`フィールドにインスタンス化した`Store`を渡す
+- `child`フィールドに定義した`_ReduxCounterPage` widgetにインスタンスを注入
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return StoreProvider(
+      store: store,
+      child: _ReduxCounterPage(),
+    );
+  }
+```
 
+さあ、これで`_ReduxCounterPage` widgetより下に位置する全てのWidget`Store`クラスにアクセスできる様になりました。
+
+## 状態へのアクセス
+`Store`へのアクセスは全て`StoreConnector`クラスを使います。
+
+### 状態値の取得
+- `converter`フィールドにて取得する状態値を指定します
+- `builder`フィールドでラップしたWidgetにconverterで定義した値を渡す事が出来ます
+- `distinct:true`とする事で値が変わった時だけ再描画が走るようにする事ができます
+```dart
+  StoreConnector<RootState, int>(
+    converter: (store) => store.state.reduxCounterState.count,
+    distinct: true,
+    builder: (context, count) => Text(
+      '$count',
+      style: Theme.of(context).textTheme.headline4,
+    ),
+  ),
+```
+
+### 状態値の変更
+- 変更の場合は、`Action`オブジェクトをstoreの`dispatch`メソッドを使って`Store`に送る事で実行します
+- `builder`フィールドでラップしたWidgetにconverterで定義したメソッドを渡す事が出来ます
+```dart
+  StoreConnector<RootState, VoidCallback>(
+    converter: (store) => () => store.dispatch(IncrementAction()),
+    builder: (context, dispatchIncrement) => FloatingActionButton(
+      onPressed: dispatchIncrement,
+      tooltip: 'Increment',
+      heroTag: 'Increment',
+      child: Icon(Icons.add),
+    ),
+  ),
+```
+
+## 参考

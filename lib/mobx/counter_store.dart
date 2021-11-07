@@ -24,7 +24,7 @@ abstract class CounterStoreBase with Store {
   }
 
   @action
-  void clear() {
+  void reset() {
     countObj = CounterState(0);
   }
 }

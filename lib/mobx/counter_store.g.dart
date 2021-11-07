@@ -50,11 +50,11 @@ mixin _$CounterStore on CounterStoreBase, Store {
   }
 
   @override
-  void clear() {
+  void reset() {
     final _$actionInfo = _$CounterStoreBaseActionController.startAction(
         name: 'CounterStoreBase.clear');
     try {
-      return super.clear();
+      return super.reset();
     } finally {
       _$CounterStoreBaseActionController.endAction(_$actionInfo);
     }

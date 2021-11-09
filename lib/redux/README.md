@@ -137,7 +137,7 @@ RootState rootCounterReducer(RootState state, action) {
   }
 ```
 
-さあ、これで`_ReduxCounterPage` widgetより下に位置する全てのWidget`Store`クラスにアクセスできる様になりました。
+さあ、これで`_ReduxCounterPage` widgetより下に位置する全てのWidgetで`Store`クラスにアクセスできる様になりました。
 
 ## 状態へのアクセス
 `Store`へのアクセスは全て`StoreConnector`クラスを使います。

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:state_management_examples/widgets/main_appbar.dart';
 
-class CounterState {
-  CounterState() : count = 0.obs;
+class CounterObj {
+  CounterObj() : count = 0.obs;
   RxInt count;
 }
 
 class GetXCounterController extends GetxController {
-  Rx<CounterState> _counter = CounterState().obs;
-  Rx<CounterState> get counter => _counter;
+  Rx<CounterObj> _counter = CounterObj().obs;
+  Rx<CounterObj> get counter => _counter;
 
   void incrementCounter() => _counter.value.count++;
 
@@ -23,8 +23,18 @@ class GetXCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(GetXCounterController());
+    return const _GetXCounterPage();
+  }
+}
+
+class _GetXCounterPage extends StatelessWidget {
+  const _GetXCounterPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     print('rebuild!');
-    final GetXCounterController c = Get.put(GetXCounterController());
+    final GetXCounterController c = Get.find();
 
     return Scaffold(
       appBar: MainAppBar(
@@ -66,9 +76,9 @@ class GetXCounterPage extends StatelessWidget {
             const SizedBox(width: 16),
             FloatingActionButton.extended(
               onPressed: c.resetCounter,
-              tooltip: 'Clear',
-              heroTag: 'Clear',
-              label: Text('CLEAR'),
+              tooltip: 'Reset',
+              heroTag: 'Reset',
+              label: Text('RESET'),
             ),
           ],
         ),

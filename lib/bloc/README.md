@@ -1,6 +1,5 @@
 # BLoC
 package: 
-- [bloc](https://pub.dev/packages/bloc) v7.2.1
 - [flutter_bloc](https://pub.dev/packages/flutter_bloc) v7.3.1
 ## 概要
 - `Provider`の次に人気な状態管理手法(pub.devのLIKE数は2番目に多い)

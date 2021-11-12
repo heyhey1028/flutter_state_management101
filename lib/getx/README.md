@@ -21,7 +21,7 @@ package:
 ## キーとなるクラスやメソッド
 - `GetxController`クラス：状態管理クラスが継承するクラス
 - `Rx<T>`クラス：状態変数をラップし、監視可能なリアクティブなオブジェクトにする
-- `.obs`：
+- `.obs`：オブジェクトをRxオブジェクトでラップし、インスタンス化する
 - `Get.put(<GetxController>)`メソッド：依存関係を注入するメソッド
 - `Get.find()`メソッド：注入されたGetxControllerへアクセスするメソッド
 - `Obx`クラス：状態変数の変化に反応し、ラップしたwidgetを再描画します
@@ -68,8 +68,7 @@ class GetXCounterController extends GetxController {
   }
 ```
 ## 状態へのアクセス
-- 状態管理クラスへのアクセスは`Get.put`メソッドを使います
-- 前述の通り、GetXControllerクラスを継承した状態管理クラスはどこからでも`Get.put`でアクセスすることができます。
+- 状態管理クラスへのアクセスは`Get.find`メソッドを使います
 
 ```dart
     final GetXCounterController c = Get.find();
@@ -99,6 +98,8 @@ class GetXCounterController extends GetxController {
 どうでしょうか、GetXには他にも様々な機能があり、だいぶ端折った部分もありますが、非常に直感的で学習コストが低いと感じます。
 
 大規模なプロジェクトで状態管理が複雑になる場合に適正かは分かりませんが、個人開発レベルであまり複雑な状態管理が発生しないプロジェクトであれば、非常に強力なツールになると感じます。
+
+他にも多くの機能があるので別途GetXだけを記事にしたいと思います。
 ## 参考
 - https://zenn.dev/mipo/scraps/1c15b5db71e146
 - https://dev.to/gunathilakahashan10/getx-a-superior-state-management-in-flutter-4jcl

@@ -1,7 +1,6 @@
 # Redux
 package: 
-- [flutter_redux](https://pub.dev/packages/flutter_redux) v0.8.2
-- [redux](https://pub.dev/packages/redux) v5.0.0
+- [flutter_redux](https://pub.dev/packages/flutter_redux) v0.8.2s
 
 ## 概要
 - Reduxは状態管理手法であり、アーキテクチャでもある

@@ -1,30 +1,20 @@
-# StateNotifier Counter
-- ChangeNotifier depends on Flutter.
-- StateNotifier is a state management solution for immutable programming.
-- That is why, it is commonly used with package `Freezed`.
-- package `state_notifier` is the one which does not depends on flutter
-- package `flutter_state_notifier` is the one which added functionality for flutter
-- you can use `flutter_state_notifier`, if you are using for flutter.
-- in StateNotifier, you can only pass one value with single stateNotifier.
-- In case, you want to pass several datas at once, you need to conduct them as data class.
-- to use StateNotifierProvider, you needd to import `flutter_state_notifier`.
+# StateNotifier
+package: 
+- [flutter_state_notifier](https://pub.dev/packages/flutter_state_notifier) v0.7.1
 
-## Setting up StateNotifier
-- within StateNotifier class, managed state can be easily accessed by keyword `state`.
-- every method will function to change this `state` by substituting new State class into `state`.
+## 概要
+- Provider、Freezed、Riverpodなどの作者でもある[Remi Rousselet](https://github.com/rrousselGit)氏が開発
+- 単一の値を保持し、その値の変更を通知する`ValueNotiifer`の拡張版のようなクラス
+- RiverpodとFreezed併せて使う例がよく見られる
+- 初版リリースは2020年3月
+## 全体像
 
-## Accessing Data, Watching Data
-- to read: `context.read<StateNotifier>()`
-- to watch: `context.watch<State>().value`
-- to watch selected value: `context.select<State,value>((state)=> state.value)`
-- using watch and select exposed will rebuild the entire widget every time state changes.
-- to narrow the rebuilt scope, Consumer is valid just like in the Provider pattern.
+## キーとなるクラスやメソッド
 
-## difference between ChangeNotifier and StateNotifier
-----
-- ChangeNotifier notifies the change of the class.
-- StateNotifier nnotifies the state itself.
+## 準備
 
-## For Distribution
-----
-- for distribution of the states, you can either use 'Provider' or 'Riverpod'.
+## 状態へのアクセス
+
+## 参考
+- https://itome.team/blog/2020/05/flutter-state-notifier-provider/
+- 

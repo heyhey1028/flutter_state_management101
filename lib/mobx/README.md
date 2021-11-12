@@ -1,6 +1,5 @@
 # MobX
 package: 
-- [mobx](https://pub.dev/packages/mobx) v2.0.5
 - [flutter_mobx](https://pub.dev/packages/flutter_mobx) v2.0.2
 - [build_runner](https://pub.dev/packages/build_runner) v2.1.2
 - [mobx_codegen](https://pub.dev/packages/mobx_codegen) v2.0.2

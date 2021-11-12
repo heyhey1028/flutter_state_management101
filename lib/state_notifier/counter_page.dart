@@ -15,7 +15,7 @@ class CounterStateNotifier extends StateNotifier<CounterState> {
   // when not using freezed, you need to substitute new State into managed state
   void increment() => state = CounterState(count: state.count + 1);
   void decrement() => state = CounterState(count: state.count - 1);
-  void clear() => state = CounterState(count: 0);
+  void reset() => state = CounterState(count: 0);
 }
 
 class StateNotifierCounterPage extends StatelessWidget {
@@ -77,10 +77,10 @@ class _StateNotifierCounterPage extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => context.read<CounterStateNotifier>().clear(),
-              tooltip: 'Clear',
-              heroTag: 'Clear',
-              label: Text('CLEAR'),
+              onPressed: () => context.read<CounterStateNotifier>().reset(),
+              tooltip: 'Reset',
+              heroTag: 'Reset',
+              label: Text('RESET'),
             ),
           ],
         ),

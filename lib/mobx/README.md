@@ -8,7 +8,7 @@ package:
 - 状態管理クラスを自動生成して使うユニークな状態管理手法
 - `MobX`自体は元々Javascript(主にReact)で使う為に開発された設計思想
 - [Pavan Podira](https://github.com/pavanpodila)氏が開発
-
+- 初版リリースは2019年1月
 ## 全体像
 ### MobXとは？
 前述の通り、Reactと共に使う為に開発された設計思想で以下3つの構成要素から成ります。

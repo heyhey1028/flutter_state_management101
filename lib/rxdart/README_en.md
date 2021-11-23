@@ -35,6 +35,3 @@ streamSubject.sink.add('仗助');
 - `ReplaySubject`: on top of `BehaviorSubject`, it caches not only the last data, but all of the datas which flowed through the stream. 
 - For `BehaviorSubject` and `ReplaySubject`, we don't neccesarily needs to define listen before sink.add.
 
-## NOTE
-- BLoC pattern with RxDart is a mutable state management solution.
-- Although, it follows the BLoC pattern architecture, it can be quite different with using `bloc` package.

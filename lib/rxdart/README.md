@@ -181,6 +181,38 @@ class RxCounterBloc {
 ```
 
 ## 状態へのアクセス
+- 本サンプルでは`provider`で依存関係を注入しているので、状態管理クラスへのアクセスは`Provider`を通してアクセスします。
+```dart
+  @override
+  Widget build(BuildContext context) {
+    final RxCounterBloc counter = Provider.of<RxCounterBloc>(context);
+```
+### 状態値の監視
+- 状態値の監視は`StreamBulder`を通して状態管理クラスの`BehaviorSubject`をlistenする事で行います。
+- これにより`BehaviorSubject`に新しいオブジェクトが`sink.add`される度に`builder`内のwidgetが際描画されます。
+```dart
+  StreamBuilder<CounterState>(
+    initialData: CounterState(0),
+    stream: counter.counterStream,
+    builder: (BuildContext context,
+            AsyncSnapshot<CounterState> snapshot) =>
+        Text(
+      snapshot.data.count.toString(),
+      style: Theme.of(context).textTheme.headline4,
+    ),
+  ),
+```
+### メソッドへのアクセス
+- シンプルに`provider`を通してアクセスします
+```dart
+  FloatingActionButton(
+    onPressed: () => counter.increment(),
+    tooltip: 'Increment',
+    heroTag: 'Increment',
+    child: Icon(Icons.add),
+  ),
+```
+
 
 ## 参考
 - https://qiita.com/temoki/items/b859b55a06bd86fdfe25

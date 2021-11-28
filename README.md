@@ -1,27 +1,57 @@
-# [WIP]state_management_examples
-This tutorial will introduce different kinds of state management solutions existing in Flutter world. 
+# Flutter State Management 101
+この記事の目的は数あるFlutterの状態管理手法の特徴とその違いを明確にし、状態管理手法の全体像を掴む事です
 
-This is an attempt to, by applying all solutions to same app(in this case simple Counter APP), allow us to grasp the difference and pros/cons of each solutions. 
+## Flutterの状態管理手法って沢山ありますよね
 
-It will also tries to explain how similar solutions differs and identify other packages commonly used together with each solutions. 
+ネットで「flutter 状態管理」で検索するとやれProviderだのやれBlocだのRiverpodだのと様々なライブラリを使ったパターンが出てきます
 
-This has allowed myself to identify what each packages really are. 
+しかも人によって同じ状態管理手法と言ってる割には書き方がだいぶ違ったり、1つの状態管理手法を違う名前で言っていたりとなんやねーん！と混乱してしまう記事が多いなと感じました
 
-Hope this will be any help to your journey to become a better flutter developer.
+仕事でFlutterを使い始めて1年半、`Provider`を使ってきましたが、最近`Riverpod`の名前もよく聞く様になったし、ちょっと触ってみようかなと思った矢先、先の検索結果の迷宮に迷い込みました
 
-This is everything you need to know about state management in Flutter.
+折角なのでこの機会に`Riverpod`だけでなく主要な手法を一通り触って一網打尽にしてやろうと思ったのがキッカケです
 
-## Two Paradigms of State Management Solutions
-### Mutable State
-- StatefulWidget
-- ChangeNotifier x Provider
-- GetX
-### Immutable State
-- BLoC(Cubit)
-- StateNotifier x Provider
-- Redux
-- RxDart
-- MobX x Provider
+## アプローチ
+
+このプロジェクトではシンプルなカウンターアプリを、「Flutter界隈でよく出てくる状態管理手法」として独断と偏見で選んだ以下のパッケージ・パターンを用いて書き直してみました
+
+同じアプリを違う手法で書く事によって相違点を浮き彫りにしてやろうという訳です
+
+1. Provider
+2. Bloc
+3. Redux
+4. RxDart
+5. MobX
+6. getX
+7. State Notifier
+
+もっとマイナーな手法を探せばまだまだありますが、これらを網羅しておけば大体の全体像は掴めるかなと
 
 
-------------------------
+## あれ？
+
+あれ？さっきあんなに言ってた`Riverpod`入ってないじゃん！と思った方、そうです、それこそ自分がこの試みを通して学んだ事の1つでした。
+
+そんな訳で現在は主流ではない手法も含めて複数の状態管理手法を触ることで見えてきたものがいくつかありました
+# このプロジェクトを通して見えた事
+## 1. ProviderとRiverpodは状態管理手法ではない
+実は`Provider`と`Riverpod`は直接的には状態管理用のライブラリではありません。厳密には依存関係を注入する為のライブラリです。
+
+`Provider`はwidgetツリーに沿って依存関係を下位のクラスに流し込み、`Riverpod`はwidgetツリーに縛られる事なくグローバル変数としてツリーのどこにあるwidgetにも依存関係を注入する事が出来るパッケージです
+
+状態管理の核となる状態管理クラス自体は他のパッケージのモノを使い生成する必要があります。
+
+散々「flutter 状態管理」で調べると`Provider`と`Riverpod`の名前出てくるのに！と自分も思いました
+
+またこれが「Provider」「Riverpod」と銘打った記事でも書き方に違いがある原因でもありました
+
+例えば`Riverpod`を解説した記事では`StateNotifier`を一緒に使う例が殆どで`StateNotifier`でないといけないような印象を受けますが、実はそんな事はなく`Riverpod`は`ChangeNotifier`に対応した`ChangeNotifierProvider`も実装しています
+
+ではなぜ`Provider`が状態管理手法として挙げてあるのかというと、これは`changeNotifier` x `Provider` = `Provider`パターンとして定着している為です
+
+
+
+## 2. Providerは多くの状態管理手法で取り入れられている
+## 3. MutableとImmutable、2つのパラダイム
+
+## 4. 状態管理手法の変遷

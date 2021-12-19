@@ -21,7 +21,7 @@ BLoCパターンは以下によって構成されます
 2. 状態管理クラスにEventオブジェクトを流し込むStream
 3. 受け取ったEventオブジェクトに応じて状態オブジェクトをUIに流し込むStream
 
-<絵>
+<img width="450" src="https://user-images.githubusercontent.com/44666053/146674361-244af516-475b-4eb6-8e06-9a43ef32e670.png">
 
 また常に新しい`State`オブジェクトをStreamに流す為、状態値を変更していくわけではなく`Immutable`な状態値を扱う状態管理手法となります。
 ### BlocクラスとCubitクラス
@@ -35,7 +35,7 @@ BLoCパターンは以下によって構成されます
 
 図で表すと下記のようなイメージ
 
-<絵>
+<img width="450" src="https://user-images.githubusercontent.com/44666053/146674369-cb345921-6787-402b-a18a-c65cf8f5f4ed.png">
 
 ## キーとなるクラスやメソッド
 Blocを使う場合、

@@ -19,6 +19,10 @@ class DIMainPage extends StatelessWidget {
               Text('WELCOME! This is DIs Page'),
               NavigateButton(
                 navigateTo: StateNotifierProviderCounterPage(),
+                title: 'Inherited Widget',
+              ),
+              NavigateButton(
+                navigateTo: StateNotifierProviderCounterPage(),
                 title: 'Provider',
               ),
               NavigateButton(

@@ -8,6 +8,7 @@ import 'package:state_management_examples/mobx/main_page.dart';
 import 'package:state_management_examples/provider/main_page.dart';
 import 'package:state_management_examples/redux/main_page.dart';
 import 'package:state_management_examples/rxdart/main_page.dart';
+import 'package:state_management_examples/scoped_model/main_page.dart';
 import 'package:state_management_examples/state_notifier/main_page.dart';
 import 'package:state_management_examples/stateful_widget/counter_page.dart';
 
@@ -53,6 +54,11 @@ class MainDrawer extends StatelessWidget {
               ListTile(
                 title: Text('Stateful Widget'),
                 onTap: () => _navigateTo(context, StatefulWidgetCounterPage()),
+              ),
+              Divider(height: 0),
+              ListTile(
+                title: Text('Scoped Model'),
+                onTap: () => _navigateTo(context, ScopedModelMainPage()),
               ),
               Divider(height: 0),
               ListTile(

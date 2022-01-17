@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:scoped_model/scoped_model.dart';
 import 'package:state_management_examples/widgets/main_appbar.dart';
 
 class CounterObj {
@@ -7,8 +7,8 @@ class CounterObj {
   int count;
 }
 
-class ProviderCounterState extends ChangeNotifier {
-  ProviderCounterState() : obj = CounterObj();
+class ScopedModelCounterState extends Model {
+  ScopedModelCounterState() : obj = CounterObj();
   CounterObj obj;
 
   void incrementCounter() {
@@ -32,8 +32,8 @@ class ScopedModelCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ProviderCounterState(),
+    return ScopedModel(
+      model: ScopedModelCounterState(),
       child: _ScopedModelCounterPage(),
     );
   }
@@ -45,11 +45,10 @@ class _ScopedModelCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('rebuild!');
-    final ProviderCounterState unListenState =
-        context.read<ProviderCounterState>();
+    final ScopedModelCounterState unListenState = ScopedModel.of(context);
     return Scaffold(
       appBar: MainAppBar(
-        title: 'ChangeNotifier x Provider',
+        title: 'Scoped Model',
       ),
       body: Center(
         child: Column(
@@ -58,9 +57,9 @@ class _ScopedModelCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Consumer<ProviderCounterState>(
-              builder: (context, state, _) => Text(
-                '${state.obj.count}',
+            ScopedModelDescendant<ScopedModelCounterState>(
+              builder: (context, _, model) => Text(
+                '${model.obj.count}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

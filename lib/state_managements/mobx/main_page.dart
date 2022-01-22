@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_management/mobx/counter_page.dart';
+import 'package:state_management_examples/state_managements/mobx/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 

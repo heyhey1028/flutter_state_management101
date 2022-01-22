@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_management/scoped_model/counter_page.dart';
+import 'package:state_management_examples/state_managements/rxdart/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
-class ScopedModelMainPage extends StatelessWidget {
-  const ScopedModelMainPage({Key key}) : super(key: key);
+class RxdartMainPage extends StatelessWidget {
+  const RxdartMainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class ScopedModelMainPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('WELCOME! This is ScopedModel Page'),
+              Text('WELCOME! This is RxDart Page'),
               NavigateButton(
-                navigateTo: ScopedModelCounterPage(),
-                title: 'Scoped Model',
+                navigateTo: RxdartCounterPage(),
+                title: 'RxDart with Provider',
               ),
             ],
           ),

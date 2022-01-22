@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:state_management_examples/dependency_injections/main_page.dart';
 import 'package:state_management_examples/data_classes/main_page.dart';
 import 'package:state_management_examples/main.dart';
-import 'package:state_management_examples/state_management/main_page.dart';
+import 'package:state_management_examples/state_managements/main_page.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key key}) : super(key: key);

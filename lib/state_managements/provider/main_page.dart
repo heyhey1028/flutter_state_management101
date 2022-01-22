@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_management/redux/counter_page.dart';
+import 'package:state_management_examples/state_managements/provider/counter_page_provider.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
-class ReduxMainPage extends StatelessWidget {
-  const ReduxMainPage({Key key}) : super(key: key);
+class ChangeNotifierMainPage extends StatelessWidget {
+  const ChangeNotifierMainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class ReduxMainPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('WELCOME! This is Redux Page'),
+              Text('WELCOME! This is ChangeNotifier(Provider) Page'),
               NavigateButton(
-                navigateTo: ReduxCounterPage(),
-                title: 'Redux',
+                navigateTo: ProviderCounterPage(),
+                title: 'ChangeNotifier with Provider',
               ),
             ],
           ),

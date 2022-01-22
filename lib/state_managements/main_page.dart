@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_management/bloc/main_page.dart';
-import 'package:state_management_examples/state_management/getx/main_page.dart';
-import 'package:state_management_examples/state_management/mobx/main_page.dart';
-import 'package:state_management_examples/state_management/provider/main_page.dart';
-import 'package:state_management_examples/state_management/redux/main_page.dart';
-import 'package:state_management_examples/state_management/rxdart/main_page.dart';
-import 'package:state_management_examples/state_management/scoped_model/main_page.dart';
-import 'package:state_management_examples/state_management/state_notifier/main_page.dart';
-import 'package:state_management_examples/state_management/stateful_widget/counter_page.dart';
+import 'package:state_management_examples/state_managements/bloc/main_page.dart';
+import 'package:state_management_examples/state_managements/getx/main_page.dart';
+import 'package:state_management_examples/state_managements/mobx/main_page.dart';
+import 'package:state_management_examples/state_managements/provider/main_page.dart';
+import 'package:state_management_examples/state_managements/redux/main_page.dart';
+import 'package:state_management_examples/state_managements/rxdart/main_page.dart';
+import 'package:state_management_examples/state_managements/scoped_model/main_page.dart';
+import 'package:state_management_examples/state_managements/state_notifier/main_page.dart';
+import 'package:state_management_examples/state_managements/stateful_widget/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 

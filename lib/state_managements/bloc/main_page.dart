@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_management/bloc/counter_page_bloc.dart';
-import 'package:state_management_examples/state_management/bloc/counter_page_cubit.dart';
+import 'package:state_management_examples/state_managements/bloc/counter_page_bloc.dart';
+import 'package:state_management_examples/state_managements/bloc/counter_page_cubit.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/bloc/main_page.dart';
+import 'package:state_management_examples/state_management/bloc/main_page.dart';
 import 'package:state_management_examples/state_management/getx/main_page.dart';
 import 'package:state_management_examples/state_management/mobx/main_page.dart';
 import 'package:state_management_examples/state_management/provider/main_page.dart';

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/redux/counter_page.dart';
+
+import 'package:state_management_examples/state_management/getx/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
-class ReduxMainPage extends StatelessWidget {
-  const ReduxMainPage({Key key}) : super(key: key);
+class GetxMainPage extends StatelessWidget {
+  const GetxMainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +14,10 @@ class ReduxMainPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('WELCOME! This is Redux Page'),
+              Text('WELCOME! This is GetX Page'),
               NavigateButton(
-                navigateTo: ReduxCounterPage(),
-                title: 'Redux',
+                navigateTo: GetXCounterPage(),
+                title: 'GetX',
               ),
             ],
           ),

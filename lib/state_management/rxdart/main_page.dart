@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/state_notifier/counter_page.dart';
+import 'package:state_management_examples/state_management/rxdart/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
-class StateNotifierMainPage extends StatelessWidget {
-  const StateNotifierMainPage({Key key}) : super(key: key);
+class RxdartMainPage extends StatelessWidget {
+  const RxdartMainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +13,10 @@ class StateNotifierMainPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('WELCOME! This is StateNotifier Page'),
+              Text('WELCOME! This is RxDart Page'),
               NavigateButton(
-                navigateTo: StateNotifierCounterPage(),
-                title: 'StateNotifier with Provider',
+                navigateTo: RxdartCounterPage(),
+                title: 'RxDart with Provider',
               ),
             ],
           ),

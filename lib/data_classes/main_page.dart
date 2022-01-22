@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/DIs/riverpod.dart';
+import 'package:state_management_examples/dependency_injections/riverpod.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 

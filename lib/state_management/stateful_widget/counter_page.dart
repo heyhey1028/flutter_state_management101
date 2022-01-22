@@ -44,7 +44,6 @@ class _StatefulWidgetCounterPageState extends State<StatefulWidgetCounterPage> {
       appBar: MainAppBar(
         title: 'StatefulWidget',
       ),
-      drawer: MainDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

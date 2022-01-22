@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/DIs/get_it.dart';
-import 'package:state_management_examples/DIs/hooks_riverpod.dart';
-import 'package:state_management_examples/DIs/provider.dart';
-import 'package:state_management_examples/DIs/riverpod.dart';
+import 'package:state_management_examples/dependency_injections/get_it.dart';
+import 'package:state_management_examples/dependency_injections/hooks_riverpod.dart';
+import 'package:state_management_examples/dependency_injections/inherited_widget.dart';
+import 'package:state_management_examples/dependency_injections/provider.dart';
+import 'package:state_management_examples/dependency_injections/riverpod.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
@@ -18,7 +19,7 @@ class DIMainPage extends StatelessWidget {
             children: [
               Text('WELCOME! This is DIs Page'),
               NavigateButton(
-                navigateTo: StateNotifierProviderCounterPage(),
+                navigateTo: InheritedWidgetCounterPage(),
                 title: 'Inherited Widget',
               ),
               NavigateButton(

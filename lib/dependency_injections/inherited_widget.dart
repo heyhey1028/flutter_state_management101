@@ -17,20 +17,20 @@ class CounterStateNotifier extends StateNotifier<CounterState> {
   void clear() => state = CounterState(count: 0);
 }
 
-class StateNotifierInheritedWidgetCounterPage extends StatelessWidget {
-  const StateNotifierInheritedWidgetCounterPage({Key key}) : super(key: key);
+class InheritedWidgetCounterPage extends StatelessWidget {
+  const InheritedWidgetCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StateNotifierProvider<CounterStateNotifier, CounterState>(
       create: (context) => CounterStateNotifier(),
-      child: const _StateNotifierInheritedWidgetCounterPage(),
+      child: const _InheritedWidgetCounterPage(),
     );
   }
 }
 
-class _StateNotifierInheritedWidgetCounterPage extends StatelessWidget {
-  const _StateNotifierInheritedWidgetCounterPage({Key key}) : super(key: key);
+class _InheritedWidgetCounterPage extends StatelessWidget {
+  const _InheritedWidgetCounterPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _StateNotifierInheritedWidgetCounterPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('StateNotifier x Provider'),
+        title: Text('Inherited Widget'),
       ),
       body: Center(
         child: Column(

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:state_management_examples/getx/counter_page.dart';
+import 'package:state_management_examples/state_management/scoped_model/counter_page.dart';
 import 'package:state_management_examples/widgets/main_scaffold.dart';
 import 'package:state_management_examples/widgets/navigate_button.dart';
 
-class GetxMainPage extends StatelessWidget {
-  const GetxMainPage({Key key}) : super(key: key);
+class ScopedModelMainPage extends StatelessWidget {
+  const ScopedModelMainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +13,10 @@ class GetxMainPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text('WELCOME! This is GetX Page'),
+              Text('WELCOME! This is ScopedModel Page'),
               NavigateButton(
-                navigateTo: GetXCounterPage(),
-                title: 'GetX',
+                navigateTo: ScopedModelCounterPage(),
+                title: 'Scoped Model',
               ),
             ],
           ),

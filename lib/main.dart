@@ -22,6 +22,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
+      showDrawer: true,
       body: Center(
         child: Container(
           child: Text(

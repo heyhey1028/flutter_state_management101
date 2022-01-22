@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_examples/DIs/main_page.dart';
-import 'package:state_management_examples/bloc/main_page.dart';
+import 'package:state_management_examples/dependency_injections/main_page.dart';
 import 'package:state_management_examples/data_classes/main_page.dart';
-import 'package:state_management_examples/getx/main_page.dart';
 import 'package:state_management_examples/main.dart';
-import 'package:state_management_examples/mobx/main_page.dart';
-import 'package:state_management_examples/provider/main_page.dart';
-import 'package:state_management_examples/redux/main_page.dart';
-import 'package:state_management_examples/rxdart/main_page.dart';
-import 'package:state_management_examples/scoped_model/main_page.dart';
-import 'package:state_management_examples/state_notifier/main_page.dart';
-import 'package:state_management_examples/stateful_widget/counter_page.dart';
+import 'package:state_management_examples/state_management/main_page.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key key}) : super(key: key);
@@ -52,48 +44,8 @@ class MainDrawer extends StatelessWidget {
               ),
               Divider(height: 0),
               ListTile(
-                title: Text('Stateful Widget'),
-                onTap: () => _navigateTo(context, StatefulWidgetCounterPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('Scoped Model'),
-                onTap: () => _navigateTo(context, ScopedModelMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('ChangeNotifier(Provider)'),
-                onTap: () => _navigateTo(context, ChangeNotifierMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('StateNotifier'),
-                onTap: () => _navigateTo(context, StateNotifierMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('BLoC'),
-                onTap: () => _navigateTo(context, BlocMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('RxDart'),
-                onTap: () => _navigateTo(context, RxdartMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('MobX'),
-                onTap: () => _navigateTo(context, MobxMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('Redux'),
-                onTap: () => _navigateTo(context, ReduxMainPage()),
-              ),
-              Divider(height: 0),
-              ListTile(
-                title: Text('GetX'),
-                onTap: () => _navigateTo(context, GetxMainPage()),
+                title: Text('State Management'),
+                onTap: () => _navigateTo(context, StateManagementMainPage()),
               ),
               Divider(height: 0),
               ListTile(
@@ -114,7 +66,7 @@ class MainDrawer extends StatelessWidget {
   }
 
   void _navigateTo(BuildContext context, Widget to) {
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => to),
     );
   }

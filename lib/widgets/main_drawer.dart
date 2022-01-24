@@ -66,7 +66,7 @@ class MainDrawer extends StatelessWidget {
   }
 
   void _navigateTo(BuildContext context, Widget to) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => to),
     );
   }

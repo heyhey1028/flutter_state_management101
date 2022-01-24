@@ -9,6 +9,7 @@ class DataClassMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
+      showDrawer: true,
       body: Center(
         child: SingleChildScrollView(
           child: Column(

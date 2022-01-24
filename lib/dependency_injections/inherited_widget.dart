@@ -1,31 +1,75 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_state_notifier/flutter_state_notifier.dart';
-import 'package:provider/provider.dart';
-import 'package:state_notifier/state_notifier.dart';
+import 'package:state_management_examples/widgets/main_appbar.dart';
 
-@immutable
 class CounterState {
   CounterState({this.count});
-  final int count;
+  int count;
 }
 
-class CounterStateNotifier extends StateNotifier<CounterState> {
-  CounterStateNotifier() : super(CounterState(count: 0));
-  // when not using freezed, you need to substitute new State into managed state
-  void increment() => state = CounterState(count: state.count + 1);
-  void decrement() => state = CounterState(count: state.count - 1);
-  void clear() => state = CounterState(count: 0);
+class InheritedWidgetCounterPage extends StatefulWidget {
+  InheritedWidgetCounterPage();
+
+  @override
+  _InheritedWidgetCounterPageState createState() =>
+      _InheritedWidgetCounterPageState();
 }
 
-class InheritedWidgetCounterPage extends StatelessWidget {
-  const InheritedWidgetCounterPage({Key key}) : super(key: key);
+class _InheritedWidgetCounterPageState
+    extends State<InheritedWidgetCounterPage> {
+  CounterState counter = CounterState(count: 0);
+
+  void increment() {
+    setState(() => counter.count++);
+  }
+
+  void decrement() {
+    setState(() => counter.count--);
+  }
+
+  void reset() {
+    setState(() => counter.count = 0);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return StateNotifierProvider<CounterStateNotifier, CounterState>(
-      create: (context) => CounterStateNotifier(),
-      child: const _InheritedWidgetCounterPage(),
+    return _MyInheritedWidget(
+      child: _InheritedWidgetCounterPage(),
+      state: this,
     );
+  }
+}
+
+class _MyInheritedWidget extends InheritedWidget {
+  _MyInheritedWidget({
+    Key key,
+    @required Widget child,
+    @required this.state,
+  }) : super(key: key, child: child);
+
+  final _InheritedWidgetCounterPageState state;
+
+  static _MyInheritedWidget of(BuildContext context, {bool rebuild = true}) {
+    if (rebuild) {
+      return context.dependOnInheritedWidgetOfExactType<_MyInheritedWidget>();
+    }
+    return context.findAncestorWidgetOfExactType<_MyInheritedWidget>();
+  }
+
+  void incrementCounter() {
+    state.increment();
+  }
+
+  void decrementCounter() {
+    state.decrement();
+  }
+
+  void resetCounter() {
+    state.reset();
+  }
+
+  @override
+  bool updateShouldNotify(_MyInheritedWidget oldWidget) {
+    return state != oldWidget.state;
   }
 }
 
@@ -34,12 +78,13 @@ class _InheritedWidgetCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _MyInheritedWidget inherit = _MyInheritedWidget.of(context);
+
     print('rebuild!');
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Inherited Widget'),
+      appBar: MainAppBar(
+        title: 'Inherited Widget',
       ),
       body: Center(
         child: Column(
@@ -48,12 +93,9 @@ class _InheritedWidgetCounterPage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            // Consumer is also valid for stateNotifier solution to narrow the rebuild scope
-            Consumer<CounterState>(
-              builder: (context, state, _) => Text(
-                state.count.toString(),
-                style: Theme.of(context).textTheme.headline4,
-              ),
+            Text(
+              '${inherit.state.counter.count}',
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
@@ -63,24 +105,24 @@ class _InheritedWidgetCounterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().increment(),
+              onPressed: inherit.incrementCounter,
               tooltip: 'Increment',
               heroTag: 'Increment',
               child: Icon(Icons.add),
             ),
             const SizedBox(width: 16),
             FloatingActionButton(
-              onPressed: () => context.read<CounterStateNotifier>().decrement(),
+              onPressed: inherit.decrementCounter,
               tooltip: 'Decrement',
               heroTag: 'Decrement',
               child: Icon(Icons.remove),
             ),
             const SizedBox(width: 16),
             FloatingActionButton.extended(
-              onPressed: () => context.read<CounterStateNotifier>().clear(),
-              tooltip: 'Clear',
-              heroTag: 'Clear',
-              label: Text('CLEAR'),
+              onPressed: inherit.resetCounter,
+              tooltip: 'Reset',
+              heroTag: 'Reset',
+              label: Text('RESET'),
             ),
           ],
         ),

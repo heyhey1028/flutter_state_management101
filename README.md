@@ -105,7 +105,7 @@ Immutable
 
 Flutterは元々Reactを参考に作られているだけあって、初期はReactで使われていたReduxやReactiveプログラミングのライブラリであるRxdart、Blocなどの開発から始まり、その後、Flutterのwidgetツリー構造を利用したProviderへ。そしてWidgetツリー構造を利用したProviderが成熟して来たところで、今度はツリー構造から解放されたGetXやStateNotifier(x Riverpod)が注目を集めてきたという流れになりそうです。
 
-![state_managements drawio](https://user-images.githubusercontent.com/44666053/151799332-afc0ff99-768e-4822-9617-6d3de19ae3ff.png)
+<img width="450" src="https://user-images.githubusercontent.com/44666053/151803366-52d633f5-e102-42db-91da-48d864d1b34a.png">
 
 
 BlocはGoogle自ら開発した状態管理手法でありながら、2019年に正式にGoogleがProviderを推奨している事から、FlutterにおいてはStreamをベースとしたReactiveな状態管理から離れていってる様な印象を受けます。が、手法の良し悪しというよりblocの方がえてしてProviderよりも記述量が多くなりがちだったり、学習コストが高いという理由からProviderが推奨される様になった様です。

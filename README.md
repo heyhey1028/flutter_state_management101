@@ -23,7 +23,7 @@
 4. RxDart
 5. Scoped Model
 6. MobX
-7. getX
+7. GetX
 8. State Notifier
 
 もっとマイナーな手法を探せばまだまだありますが、これらを網羅しておけば大体の全体像は掴めるかなと思います

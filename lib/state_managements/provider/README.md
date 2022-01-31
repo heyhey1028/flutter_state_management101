@@ -13,7 +13,9 @@ package: [provider](https://pub.dev/packages/provider) v6.0.1
   2. 状態変更を明示的に通知する
 
 状態を保持したクラスは依存関係を注入されたWidgetとそのWidgetツリー傘下のWidgetからアクセスが可能になります。Widgetツリーに沿って依存関係が下っていくようなイメージ。
-<絵>
+
+<img width="350" src="https://user-images.githubusercontent.com/44666053/151802595-38bd6d0a-29ff-4bbb-95e6-fa869d7c938d.png">
+
 
 Widgetは状態管理クラスの変数やメソッドをProviderを通してアクセスします。変数を変更した際は用意されている通知メソッドを実行し、変数を利用しているクラスに通知。その通知を受けったクラス達は新しい値で自身を再生成(リビルド)する事になります。
 

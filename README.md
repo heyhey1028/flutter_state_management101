@@ -21,9 +21,10 @@
 2. Bloc
 3. Redux
 4. RxDart
-5. MobX
-6. getX
-7. State Notifier
+5. Scoped Model
+6. MobX
+7. getX
+8. State Notifier
 
 もっとマイナーな手法を探せばまだまだありますが、これらを網羅しておけば大体の全体像は掴めるかなと思います
 
@@ -74,6 +75,7 @@ Mutableな状態オブジェクトの管理では変更したいフィールド�
 Mutable
 - StatefulWidget
 - ChangeNotifier x Provider
+- Scoped Model
 - GetX
 
 Immutable
@@ -92,17 +94,22 @@ Immutable
 その他、リリース順に並べてみることでどういった方向に状態管理手法のトレンドが動いているのかなんとなく掴む事も出来ました
 
 ライブラリを初回リリース時期の順に並べると以下の通りとなります。
+1. `Rxdart` 2015/10
+2. `Redux` 2017/08
+3. `Scoped Model` 2017/08
+4. `Bloc` 2018/10
+5. `Provider` 2018/10
+6. `Mobx` 2019/01
+7. `GetX` 2019/11
+8. `StateNotifier` 2020/03
+
 Flutterは元々Reactを参考に作られているだけあって、初期はReactで使われていたReduxやReactiveプログラミングのライブラリであるRxdart、Blocなどの開発から始まり、その後、Flutterのwidgetツリー構造を利用したProviderへ。そしてWidgetツリー構造を利用したProviderが成熟して来たところで、今度はツリー構造から解放されたGetXやStateNotifier(x Riverpod)が注目を集めてきたという流れになりそうです。
+
+![state_managements drawio](https://user-images.githubusercontent.com/44666053/151799332-afc0ff99-768e-4822-9617-6d3de19ae3ff.png)
+
 
 BlocはGoogle自ら開発した状態管理手法でありながら、2019年に正式にGoogleがProviderを推奨している事から、FlutterにおいてはStreamをベースとしたReactiveな状態管理から離れていってる様な印象を受けます。が、手法の良し悪しというよりblocの方がえてしてProviderよりも記述量が多くなりがちだったり、学習コストが高いという理由からProviderが推奨される様になった様です。
 
-1. `Rxdart` 2015/10
-2. `Redux` 2017/8
-3. `Bloc` 2018/10
-4. `Provider` 2018/10
-5. `Mobx` 2019/1
-6. `GetX` 2019/11
-7. `StateNotifier` 2020/3
 
 # 参考
 - https://docs.flutter.dev/development/data-and-backend/state-mgmt/options

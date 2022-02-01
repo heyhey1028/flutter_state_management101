@@ -172,3 +172,6 @@ RootState rootCounterReducer(RootState state, action) {
 ```
 
 ## 参考
+- https://qiita.com/ko2ic/items/97aeaa4bdbaa6a7e6cbe (JP)
+- https://medium.com/upday-devs/reduce-duplication-achieve-flexibility-means-success-for-the-flutter-app-e5e432839e61 (EN)
+- https://itome.team/blog/2019/12/flutter-advent-calendar-day22/ (JP)

@@ -121,6 +121,6 @@ class CounterStateNotifier extends StateNotifier<CounterState> {
 
 
 ## 参考
-- https://itome.team/blog/2020/05/flutter-state-notifier-provider/ (Japanese)
-- https://dev.to/marcossevilla/statenotifier-an-improved-changenotifier-3f84 (English)
-- 
+- https://itome.team/blog/2020/05/flutter-state-notifier-provider/ (JP)
+- https://dev.to/marcossevilla/statenotifier-an-improved-changenotifier-3f84 (EN)
+- https://qiita.com/_masaokb/items/fe77495db0aeba226d2a (JP)

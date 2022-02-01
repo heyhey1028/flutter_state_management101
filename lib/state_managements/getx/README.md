@@ -102,6 +102,6 @@ class GetXCounterController extends GetxController {
 
 他にも多くの機能があるので別途GetXだけを記事にしたいと思います。
 ## 参考
-- https://zenn.dev/mipo/scraps/1c15b5db71e146
-- https://dev.to/gunathilakahashan10/getx-a-superior-state-management-in-flutter-4jcl
-- https://zenn.dev/tatsuhiko/books/b938417d5cb04d/viewer/944e11
+- https://zenn.dev/mipo/scraps/1c15b5db71e146 (JP)
+- https://dev.to/gunathilakahashan10/getx-a-superior-state-management-in-flutter-4jcl (EN)
+- https://zenn.dev/tatsuhiko/books/b938417d5cb04d/viewer/944e11 (JP)

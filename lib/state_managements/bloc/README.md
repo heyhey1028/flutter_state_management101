@@ -189,3 +189,6 @@ class CounterCubit extends Cubit<CounterState> {
 ```
 
 ## 参考
+- https://bloclibrary.dev/#/fluttercountertutorial (EN)
+- https://qiita.com/maria_mari/items/fe6075026fcd04eaba5a (JP)
+- https://blog.logrocket.com/state-management-flutter-bloc-pattern/ (EN)

@@ -161,5 +161,5 @@ $ flutter pub run build_runner build
 今回は例がシンプル過ぎて使いませんでしたが`reaction`、`autorun`、`when`を使う様な状況が発生した場合、本領を発揮する状態管理手法だと思います。
 
 ## 参考
-- https://itome.team/blog/2019/12/flutter-advent-calendar-day23/
-- https://itnext.io/flutter-state-management-with-mobx-and-providers-change-app-theme-dynamically-ba3b60619050
+- https://itome.team/blog/2019/12/flutter-advent-calendar-day23/ (JP)
+- https://itnext.io/flutter-state-management-with-mobx-and-providers-change-app-theme-dynamically-ba3b60619050 (EN)

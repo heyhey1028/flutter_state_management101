@@ -137,7 +137,7 @@ child引数で渡したWidgetはあまり使うことはないかも知れませ
 どちらにせよ`Model`クラスと同機能の`ChangeNotifier`が標準実装された事により、`Scoped Model`パッケージを使うメリットが無くなったのは事実で、特殊な理由がない限りは`ChangeNotifier` x `Provider`を使えば良いと個人的には思いました
 
 ## 参考
-- https://qiita.com/hayassh/items/690fa0d6528e056617b5
-- https://www.reddit.com/r/FlutterDev/comments/brz0nu/scoped_model_vs_provider/ere338x/
-- https://stackoverflow.com/questions/56886805/difference-between-changenotifierprovider-and-scopedmodel-in-flutter
-- https://qiita.com/kabochapo/items/2b992cc00e9f464c1ea9#bloc%E4%BB%A5%E5%A4%96%E3%81%AE%E7%8A%B6%E6%85%8B%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95
+- https://qiita.com/hayassh/items/690fa0d6528e056617b5 (JP)
+- https://www.reddit.com/r/FlutterDev/comments/brz0nu/scoped_model_vs_provider/ere338x/ (EN)
+- https://stackoverflow.com/questions/56886805/difference-between-changenotifierprovider-and-scopedmodel-in-flutter (EN)
+- https://qiita.com/kabochapo/items/ 2b992cc00e9f464c1ea9#bloc%E4%BB%A5%E5%A4%96%E3%81%AE%E7%8A%B6%E6%85%8B%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95 (JP)

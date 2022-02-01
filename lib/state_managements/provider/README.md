@@ -158,4 +158,6 @@ BlocやRedux、GetXなど他の状態管理手法とProviderを同列で比較�
 
 と言うニュアンスで考えるのが良さそうです。ちょっと「Providerパターン」なんて名前があるかは定かじゃありませんが。
 
-## 参考文献
+## 参考
+- https://itome.team/blog/2019/12/flutter-advent-calendar-day7/ (JP)
+- https://docs.flutter.dev/development/data-and-backend/state-mgmt/simple (EN)

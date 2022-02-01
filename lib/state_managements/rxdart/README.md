@@ -215,7 +215,7 @@ class RxCounterBloc {
 
 
 ## 参考
-- https://qiita.com/temoki/items/b859b55a06bd86fdfe25
-- http://reactivex.io/
-- https://medium.com/flutter-community/why-use-rxdart-and-how-we-can-use-with-bloc-pattern-in-flutter-a64ca2c7c52d
-- https://pub.dev/documentation/rxdart/latest/rx/rx-library.html
+- https://qiita.com/temoki/items/b859b55a06bd86fdfe25 (JP)
+- http://reactivex.io/ (EN)
+- https://medium.com/flutter-community/why-use-rxdart-and-how-we-can-use-with-bloc-pattern-in-flutter-a64ca2c7c52d (EN)
+- https://pub.dev/documentation/rxdart/latest/rx/rx-library.html (EN)
